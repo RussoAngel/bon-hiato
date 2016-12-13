@@ -43,28 +43,34 @@ public class Login extends javax.swing.JFrame {
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from login");
-            
+            boolean success = false;
             while(rs.next()){
                 
                 develop="developer";
                 pd="productOwner";
-                scm="scrumMaster";
+                scm="scrumMaster";             
                 if(usuario.equals(rs.getString("name")) && password.equals(rs.getString("password")) && develop.equals(rs.getString("type"))){
                     Developer developer = new Developer(rs.getString("name"));
                     developer.setLocationRelativeTo(null);
                     developer.setVisible(true);
+                    success = true;
                     dispose();
                 }else if(usuario.equals(rs.getString("name")) && password.equals(rs.getString("password")) && pd.equals(rs.getString("type"))){
                     ProductOwner productOwner = new ProductOwner();
                     productOwner.setLocationRelativeTo(null);
                     productOwner.setVisible(true);
+                    success = true;
                     dispose();
                 }else if(usuario.equals(rs.getString("name")) && password.equals(rs.getString("password")) && scm.equals(rs.getString("type"))){
                     ScrumMaster scrumMaster = new ScrumMaster(rs.getString("name"));
                     scrumMaster.setLocationRelativeTo(null);
                     scrumMaster.setVisible(true);
+                    success = true;
                     dispose();
                 }
+            }
+            if (!success) {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto.");
             }
         }catch(SQLException e){
             System.out.println("no se pudo acceder");
