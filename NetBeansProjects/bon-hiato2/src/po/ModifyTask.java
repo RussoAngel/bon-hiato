@@ -89,7 +89,7 @@ public class ModifyTask extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Product Owner - Modificar tarea");
 
         modifyTaskName.setText("Nombre de la Tarea");
 

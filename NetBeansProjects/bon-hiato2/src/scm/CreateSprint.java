@@ -71,7 +71,7 @@ public class CreateSprint extends javax.swing.JFrame {
         fechaIniCreateSprint = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Crear sprint");
 
         createSprintName.setText("SprintName");
 

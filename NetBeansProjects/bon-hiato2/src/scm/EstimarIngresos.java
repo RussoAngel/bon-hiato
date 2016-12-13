@@ -72,7 +72,7 @@ public class EstimarIngresos extends javax.swing.JFrame {
         canEstimarIngresos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Estimar ingresos");
 
         estimarIngresosName.setText("Nombre");
 

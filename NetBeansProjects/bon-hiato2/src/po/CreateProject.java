@@ -48,7 +48,7 @@ public class CreateProject extends javax.swing.JFrame {
         canCreateProject = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Product Owner - Crear proyecto");
 
         createProjectName.setText("Nombre del Proyecto");
 

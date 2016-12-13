@@ -41,7 +41,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
         canRealizarEstimar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Realizar estimación");
 
         tasksRealizarEstimar.setText("Estimar duracion tareas");
         tasksRealizarEstimar.addActionListener(new java.awt.event.ActionListener() {

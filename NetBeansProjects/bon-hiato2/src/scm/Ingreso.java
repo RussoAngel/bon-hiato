@@ -62,7 +62,7 @@ public class Ingreso extends javax.swing.JFrame {
         canIngreso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Ingresos");
 
         ingresoTotal.setText("Ingresos Totales");
 

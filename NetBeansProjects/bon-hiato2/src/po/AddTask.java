@@ -69,7 +69,7 @@ public class AddTask extends javax.swing.JFrame {
         priorityRulesAddTask = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Product Owner - Añadir tarea");
 
         addTaskName.setText("Nombre de la Tarea");
 

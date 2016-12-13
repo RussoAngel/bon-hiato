@@ -62,7 +62,7 @@ public class Developer extends javax.swing.JFrame {
         logoutDeveloper = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Developer");
 
         developerTitle.setText("Bon Hiato-Project Selection");
 

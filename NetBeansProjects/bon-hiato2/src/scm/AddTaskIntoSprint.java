@@ -97,13 +97,13 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
-        taskListAddToSprint = new javax.swing.JList<String>();
+        taskListAddToSprint = new javax.swing.JList<>();
         accAddToSprint = new javax.swing.JButton();
         canAddToSprint = new javax.swing.JButton();
         addToSprintTasks = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Añadir tarea al sprint");
 
         scroll.setViewportView(taskListAddToSprint);
 

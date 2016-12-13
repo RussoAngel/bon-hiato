@@ -72,13 +72,13 @@ public class SelectTask extends javax.swing.JFrame {
 
         titleSelecTask = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        tasksListSelecTask = new javax.swing.JList<String>();
+        tasksListSelecTask = new javax.swing.JList<>();
         updateSelecTask = new javax.swing.JButton();
         canSelecTask = new javax.swing.JButton();
         remSelecTask = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Tareas");
 
         titleSelecTask.setText("Proyecto Actual");
 

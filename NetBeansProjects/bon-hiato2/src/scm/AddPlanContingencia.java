@@ -78,7 +78,7 @@ public class AddPlanContingencia extends javax.swing.JFrame {
         canAddPlan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Añadir plan de contingencia");
 
         perdidaAddPlan.setText("0");
 

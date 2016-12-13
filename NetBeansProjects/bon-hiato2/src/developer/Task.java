@@ -93,7 +93,7 @@ public class Task extends javax.swing.JFrame {
         tasksTitle = new javax.swing.JLabel();
         tasksTasks = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        listTasks = new javax.swing.JList<String>();
+        listTasks = new javax.swing.JList<>();
         modTasks = new javax.swing.JButton();
         canTasks = new javax.swing.JButton();
         infTasks = new javax.swing.JButton();
@@ -101,7 +101,7 @@ public class Task extends javax.swing.JFrame {
         jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Developer - Panel de tareas");
 
         tasksTitle.setText("Proyecto Actual");
 

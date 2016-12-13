@@ -69,12 +69,12 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
 
         selecTareaLab = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        tasksListSelecTarea = new javax.swing.JList<String>();
+        tasksListSelecTarea = new javax.swing.JList<>();
         accSelecTarea = new javax.swing.JButton();
         canSelecTarea = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Estimar tareas");
 
         selecTareaLab.setText("Proyecto Actual");
 

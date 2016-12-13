@@ -68,13 +68,13 @@ public class SeleccionarInforme extends javax.swing.JFrame {
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
-        informesListSelecInforme = new javax.swing.JList<String>();
+        informesListSelecInforme = new javax.swing.JList<>();
         selecInformesLab = new javax.swing.JLabel();
         accSelecInformes = new javax.swing.JButton();
         canSelecInformes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Informes");
 
         scroll.setViewportView(informesListSelecInforme);
 

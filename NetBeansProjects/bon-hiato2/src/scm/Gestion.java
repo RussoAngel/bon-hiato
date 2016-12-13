@@ -46,7 +46,7 @@ public class Gestion extends javax.swing.JFrame {
         canGestion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Gestión");
 
         addTaskGestion.setText("Crear Tarea");
         addTaskGestion.addActionListener(new java.awt.event.ActionListener() {

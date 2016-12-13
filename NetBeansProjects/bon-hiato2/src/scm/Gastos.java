@@ -73,7 +73,7 @@ public class Gastos extends javax.swing.JFrame {
         canGastos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Gastos");
 
         gastosTotal.setText("Gastos Totales");
 

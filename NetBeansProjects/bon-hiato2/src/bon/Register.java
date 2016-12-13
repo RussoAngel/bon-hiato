@@ -73,7 +73,7 @@ public class Register extends javax.swing.JFrame {
         selectionRolRegister = new java.awt.Choice();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Registro");
 
         registerTitle.setText("Registro");
 

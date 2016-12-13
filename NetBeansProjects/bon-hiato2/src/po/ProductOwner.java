@@ -58,7 +58,7 @@ public class ProductOwner extends javax.swing.JFrame {
         remProductOwner = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Product Owner");
 
         productOwnerSelector.setText("Bon Hiato-Project Selection");
 

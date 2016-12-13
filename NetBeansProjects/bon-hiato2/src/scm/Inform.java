@@ -67,7 +67,7 @@ public class Inform extends javax.swing.JFrame {
         description = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Informe");
 
         canInform.setText("Cancelar");
         canInform.addActionListener(new java.awt.event.ActionListener() {

@@ -83,7 +83,7 @@ public class CambiarRol extends javax.swing.JFrame {
         name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Cambiar rol");
 
         cambiarRolPassToEdit.setText("Contraseña admin");
 

@@ -75,7 +75,7 @@ public class AddResource extends javax.swing.JFrame {
         canAddResource = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Añadir recurso");
 
         addResourceName.setText("Nombre del recurso");
 

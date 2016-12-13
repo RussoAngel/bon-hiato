@@ -73,7 +73,7 @@ public class SelectResource extends javax.swing.JFrame {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         scroll = new javax.swing.JScrollPane();
-        resourcesListSelecResources = new javax.swing.JList<String>();
+        resourcesListSelecResources = new javax.swing.JList<>();
         selecResourcesLab = new javax.swing.JLabel();
         addSelecResources = new javax.swing.JButton();
         remSelecResources = new javax.swing.JButton();
@@ -82,7 +82,7 @@ public class SelectResource extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master -  Recursos");
 
         scroll.setViewportView(resourcesListSelecResources);
 

@@ -91,7 +91,7 @@ public class UpdateTask extends javax.swing.JFrame {
         updateTaskHours = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Actualizar tarea");
 
         updateTaskName.setText("Nombre de la tarea");
         updateTaskName.setToolTipText("");

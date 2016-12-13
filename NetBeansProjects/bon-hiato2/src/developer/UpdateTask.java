@@ -93,7 +93,7 @@ public class UpdateTask extends javax.swing.JFrame {
         descriptionUpdate = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Developer - Modificar tarea");
 
         taskNameLab.setText("Nombre de la tarea");
 
@@ -184,7 +184,7 @@ public class UpdateTask extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(taskNameLab)
                             .addComponent(durationLab))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,7 +192,7 @@ public class UpdateTask extends javax.swing.JFrame {
                             .addComponent(taskNameUpdate)
                             .addComponent(durationUpdate))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(priorityLab)
                             .addComponent(logHoursLab))
                         .addGap(4, 4, 4)

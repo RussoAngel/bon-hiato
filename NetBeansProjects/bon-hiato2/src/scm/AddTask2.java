@@ -76,7 +76,7 @@ public class AddTask2 extends javax.swing.JFrame {
         hoursAddTask2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Añadir tarea");
 
         addTask2Name.setText("Nombre de la Tarea");
 

@@ -80,7 +80,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
         selecPlanLab = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Planes de contingencia");
 
         scroll.setViewportView(planesListSelecPlan);
 

@@ -81,7 +81,7 @@ public class VisualizarContingencia extends javax.swing.JFrame {
         descriptionContingencia = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Plan de contingencia");
 
         visualizarContingenciaProbabilidad.setText("Probabilidad (%)");
 

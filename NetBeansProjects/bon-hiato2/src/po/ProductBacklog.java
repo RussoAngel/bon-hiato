@@ -70,14 +70,14 @@ public class ProductBacklog extends javax.swing.JFrame {
 
         productBacklogProject = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        tasksProductBacklog = new javax.swing.JList<String>();
+        tasksProductBacklog = new javax.swing.JList<>();
         addProductBacklog = new javax.swing.JButton();
         modProductBacklog = new javax.swing.JButton();
         remProductBacklog = new javax.swing.JButton();
         canProductBacklog = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Product Owner - Modificar backlog");
 
         productBacklogProject.setText("Proyecto Actual");
 

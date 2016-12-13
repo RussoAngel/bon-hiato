@@ -92,7 +92,7 @@ public class EstimarTarea extends javax.swing.JFrame {
         descriptionEstimarTarea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Estimar tarea");
 
         estimarTareaName.setText("Nombre de la tarea");
 

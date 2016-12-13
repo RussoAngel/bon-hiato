@@ -61,7 +61,7 @@ public class ScrumMaster extends javax.swing.JFrame {
         logoutScrumMaster = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master");
 
         gestionScrumMaster.setText("Gestion");
         gestionScrumMaster.addActionListener(new java.awt.event.ActionListener() {

@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
         personalLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Login");
 
         loginTitle.setText("Login");
 

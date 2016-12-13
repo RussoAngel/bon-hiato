@@ -72,7 +72,7 @@ public class AddGastos extends javax.swing.JFrame {
         precioAddGastos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Añadir gastos");
 
         descriptionAddGastos.setColumns(20);
         descriptionAddGastos.setRows(5);

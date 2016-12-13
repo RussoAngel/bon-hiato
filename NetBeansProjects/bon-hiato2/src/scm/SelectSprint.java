@@ -76,12 +76,12 @@ public class SelectSprint extends javax.swing.JFrame {
         viewSelecSprint = new javax.swing.JButton();
         canSelecSprint = new javax.swing.JButton();
         scroll = new javax.swing.JScrollPane();
-        sprintsListSelecSprint = new javax.swing.JList<String>();
+        sprintsListSelecSprint = new javax.swing.JList<>();
         addTaskSelecSprint = new javax.swing.JButton();
         remSelecSprint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bon-Hiato");
+        setTitle("Scrum master - Sprints");
 
         selecSprintLab.setText("Project-Sprints");
 
