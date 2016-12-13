@@ -52,7 +52,7 @@ public class UpdateTask extends javax.swing.JFrame {
                     logHoursUpdate.setText(rs.getString("hours"));
                     stateUpdate.setText(rs.getString("state"));
                     taskLab.setText(rs.getString("Projects"));
-                    idLab.setText(rs.getString("id"));
+                    idLab.setText("ID: "+rs.getString("id"));
                     idSprint=rs.getString("sprint");
                 }
             }

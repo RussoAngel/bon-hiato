@@ -180,7 +180,7 @@ public class Task extends javax.swing.JFrame {
     private void modTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modTasksActionPerformed
         // TODO add your handling code here:
         String tarea = listTasks.getSelectedValue();
-        if(!(tarea == null)){
+        if((tarea != null)){
             UpdateTask updateTask = new UpdateTask(tarea,projectName,developer);
             updateTask.setLocationRelativeTo(null);
             updateTask.setVisible(true);
