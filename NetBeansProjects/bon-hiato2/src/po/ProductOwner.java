@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author yonay
@@ -28,15 +27,16 @@ public class ProductOwner extends javax.swing.JFrame {
      */
     BD bd = new BD();
     Connection connection = bd.conexion();
+
     public ProductOwner() {
         initComponents();
-        try{
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from projects");
-            while(rs.next()){
+            while (rs.next()) {
                 projectProductOwner.add(rs.getString("name"));
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
     }
@@ -129,9 +129,9 @@ public class ProductOwner extends javax.swing.JFrame {
 
     private void selectProductOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProductOwnerActionPerformed
         // TODO add your handling code here:
-        String choice=projectProductOwner.getSelectedItem();
+        String choice = projectProductOwner.getSelectedItem();
         Developer developer = new Developer();
-        ProductBacklog productBacklog = new ProductBacklog(choice); 
+        ProductBacklog productBacklog = new ProductBacklog(choice);
         productBacklog.setLocationRelativeTo(null);
         productBacklog.setVisible(true);
         dispose();
@@ -147,21 +147,25 @@ public class ProductOwner extends javax.swing.JFrame {
 
     private void logoutProductOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutProductOwnerActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
-        dispose();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea desconectarse?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_logoutProductOwnerActionPerformed
 
     private void remProductOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remProductOwnerActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             String query = " DELETE FROM projects WHERE name = ?";
-            
+
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             preparedStmt.setString(1, projectProductOwner.getSelectedItem());
             preparedStmt.execute();
-        }catch(SQLException | HeadlessException e){
+        } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         ProductOwner productOwner = new ProductOwner();

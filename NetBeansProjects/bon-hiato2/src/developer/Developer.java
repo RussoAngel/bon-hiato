@@ -136,10 +136,14 @@ public class Developer extends javax.swing.JFrame {
 
     private void logoutDeveloperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutDeveloperActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
-        dispose();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea desconectarse?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_logoutDeveloperActionPerformed
 
     /**
