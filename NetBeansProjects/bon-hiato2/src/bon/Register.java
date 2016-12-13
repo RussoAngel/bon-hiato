@@ -25,28 +25,30 @@ public class Register extends javax.swing.JFrame {
      */
     BD bd = new BD();
     Connection connection = bd.conexion();
-    private boolean isSm=false;
-    private boolean isPo=false;
+    private boolean isSm = false;
+    private boolean isPo = false;
+
     public Register() {
         initComponents();
         selectionRolRegister.add("developer");
-        selectionRolRegister.add("productOwner");
-        selectionRolRegister.add("scrumMaster");
-        try{
+
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from login");
-            
-                while(rs.next()){
-                    if(rs.getString("type").equals("scrumMaster")){
-                        isSm=true;
-                    }
-                    if(rs.getString("type").equals("productOwner")){
-                        isSm=true;
-                    }
+
+            while (rs.next()) {
+                if (rs.getString("type").equals("scrumMaster")) {
+                    isSm = true;
                 }
+                if (rs.getString("type").equals("productOwner")) {
+                    isPo = true;
+                }
+            }
+            if (!isSm) selectionRolRegister.add("scrumMaster");
+            if (!isPo) selectionRolRegister.add("productOwner");                
             
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             System.out.println("Error al acceder a db");
         }
     }
@@ -168,62 +170,61 @@ public class Register extends javax.swing.JFrame {
 
     private void accRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accRegisterActionPerformed
         // TODO add your handling code here:
-      
-        if(String.valueOf(passToRegister.getPassword()).equals("1234")){
-            if(String.valueOf(passRegister.getPassword()).length() > 5){
-                if(isSm== true && selectionRolRegister.getSelectedItem().equals("scrumMaster")){
+
+        if (String.valueOf(passToRegister.getPassword()).equals("1234")) {
+            if (String.valueOf(passRegister.getPassword()).length() > 5) {
+                if (isSm == true && selectionRolRegister.getSelectedItem().equals("scrumMaster")) {
                     JOptionPane.showMessageDialog(null, "Ya hay un scrumMaster Registrado");
                     Register register = new Register();
                     register.setLocationRelativeTo(null);
                     register.setVisible(true);
-                    dispose(); 
-                }else if(isPo= true && selectionRolRegister.getSelectedItem().equals("productOwner")){
+                    dispose();
+                } else if (isPo = true && selectionRolRegister.getSelectedItem().equals("productOwner")) {
                     JOptionPane.showMessageDialog(null, "Ya hay un productOwner Registrado");
                     Register register = new Register();
                     register.setLocationRelativeTo(null);
                     register.setVisible(true);
                     dispose();
-                }else{
-                        try{
-                            String choice = selectionRolRegister.getSelectedItem();
+                } else {
+                    try {
+                        String choice = selectionRolRegister.getSelectedItem();
 
-                            String query = " insert into login (name, password, type)"
-                            + " values (?, ?, ?)";
+                        String query = " insert into login (name, password, type)"
+                                + " values (?, ?, ?)";
 
-                  // create the mysql insert preparedstatement
-                            PreparedStatement preparedStmt = connection.prepareStatement(query);
-                            preparedStmt.setString(1, userRegister.getText());
-                            preparedStmt.setString(2, String.valueOf(passRegister.getPassword()));
-                            preparedStmt.setString(3, choice);
+                        // create the mysql insert preparedstatement
+                        PreparedStatement preparedStmt = connection.prepareStatement(query);
+                        preparedStmt.setString(1, userRegister.getText());
+                        preparedStmt.setString(2, String.valueOf(passRegister.getPassword()));
+                        preparedStmt.setString(3, choice);
 
-                  // execute the preparedstatement
-                            preparedStmt.execute();
-                            Login log = new Login();
-                            log.setLocationRelativeTo(null);
-                            log.setVisible(true);
-                            dispose();
-                        }catch(SQLException | HeadlessException e){
-                            JOptionPane.showMessageDialog(null, "Ese usuario ya existe, pruebe otro.");
-                            Register register = new Register();
-                            register.setLocationRelativeTo(null);
-                            register.setVisible(true);
-                            dispose();
-                        }
-                    
-                   
+                        // execute the preparedstatement
+                        preparedStmt.execute();
+                        Login log = new Login();
+                        log.setLocationRelativeTo(null);
+                        log.setVisible(true);
+                        dispose();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, "Ese usuario ya existe, pruebe otro.");
+                        Register register = new Register();
+                        register.setLocationRelativeTo(null);
+                        register.setVisible(true);
+                        dispose();
+                    }
+
                 }
-                
-            }else{
-                JOptionPane.showMessageDialog(null, 
-                        "Contraseña no válida.", 
+
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Contraseña no válida.",
                         "Error", JOptionPane.ERROR_MESSAGE);
                 Register register = new Register();
                 register.setLocationRelativeTo(null);
                 register.setVisible(true);
                 dispose();
             }
-        }else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_accRegisterActionPerformed
 
