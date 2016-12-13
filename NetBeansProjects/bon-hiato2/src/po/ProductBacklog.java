@@ -29,32 +29,34 @@ public class ProductBacklog extends javax.swing.JFrame {
     BD bd = new BD();
     Connection connection = bd.conexion();
     String proy;
-    
+
     List<String> tareas = new ArrayList<>();
+
     public ProductBacklog() {
         initComponents();
     }
-    public ProductBacklog(String project){
-        proy= project;
+
+    public ProductBacklog(String project) {
+        proy = project;
         initComponents();
         productBacklogProject.setText(proy);
-        try{
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
-            
-            while(rs.next()){
-                
-                if(rs.getString("Projects").equals(proy)){
+
+            while (rs.next()) {
+
+                if (rs.getString("Projects").equals(proy)) {
                     tareas.add(rs.getString("name"));
                 }
             }
-            if(tareas.size()>0){
+            if (tareas.size() > 0) {
                 String[] mylist = new String[tareas.size()];
                 mylist = tareas.toArray(mylist);
                 tasksProductBacklog.setListData(mylist);
             }
-            
-        }catch(SQLException e){
+
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
     }
@@ -157,13 +159,13 @@ public class ProductBacklog extends javax.swing.JFrame {
 
     private void modProductBacklogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modProductBacklogActionPerformed
         // TODO add your handling code here:
-        String task =tasksProductBacklog.getSelectedValue();
-        if(!(task == null)){
-            ModifyTask m = new ModifyTask(proy,task);
+        String task = tasksProductBacklog.getSelectedValue();
+        if (!(task == null)) {
+            ModifyTask m = new ModifyTask(proy, task);
             m.setLocationRelativeTo(null);
             m.setVisible(true);
             dispose();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Seleccione una tarea.");
         }
     }//GEN-LAST:event_modProductBacklogActionPerformed
@@ -178,23 +180,29 @@ public class ProductBacklog extends javax.swing.JFrame {
 
     private void remProductBacklogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remProductBacklogActionPerformed
         // TODO add your handling code here:
-        if(!(tasksProductBacklog.getSelectedValue() == null)){
-            try{
-                String query = "DELETE FROM task WHERE name = ?";
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            if (!(tasksProductBacklog.getSelectedValue() == null)) {
+                try {
+                    String query = "DELETE FROM task WHERE name = ?";
 
-            PreparedStatement preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setString(1, tasksProductBacklog.getSelectedValue());
-            preparedStmt.execute();
-            }catch(SQLException | HeadlessException e){
-                JOptionPane.showMessageDialog(null, e);
+                    PreparedStatement preparedStmt = connection.prepareStatement(query);
+                    preparedStmt.setString(1, tasksProductBacklog.getSelectedValue());
+                    preparedStmt.execute();
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                ProductBacklog pr = new ProductBacklog(proy);
+                pr.setLocationRelativeTo(null);
+                pr.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una tarea para borrar.");
             }
-            ProductBacklog pr = new ProductBacklog(proy);
-            pr.setLocationRelativeTo(null);
-            pr.setVisible(true);
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Seleccione una tarea para borrar.");
+
         }
+
     }//GEN-LAST:event_remProductBacklogActionPerformed
 
     private void addProductBacklogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductBacklogActionPerformed

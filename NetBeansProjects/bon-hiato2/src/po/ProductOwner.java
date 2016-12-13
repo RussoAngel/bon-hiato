@@ -159,19 +159,25 @@ public class ProductOwner extends javax.swing.JFrame {
 
     private void remProductOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remProductOwnerActionPerformed
         // TODO add your handling code here:
-        try {
-            String query = " DELETE FROM projects WHERE name = ?";
 
-            PreparedStatement preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setString(1, projectProductOwner.getSelectedItem());
-            preparedStmt.execute();
-        } catch (SQLException | HeadlessException e) {
-            JOptionPane.showMessageDialog(null, e);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el proyecto?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            try {
+                String query = " DELETE FROM projects WHERE name = ?";
+
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, projectProductOwner.getSelectedItem());
+                preparedStmt.execute();
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            ProductOwner productOwner = new ProductOwner();
+            productOwner.setLocationRelativeTo(null);
+            productOwner.setVisible(true);
+            dispose();
         }
-        ProductOwner productOwner = new ProductOwner();
-        productOwner.setLocationRelativeTo(null);
-        productOwner.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_remProductOwnerActionPerformed
 
     /**
