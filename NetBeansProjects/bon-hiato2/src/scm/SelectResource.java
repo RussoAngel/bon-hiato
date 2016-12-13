@@ -175,23 +175,27 @@ public class SelectResource extends javax.swing.JFrame {
 
     private void remSelecResourcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remSelecResourcesActionPerformed
         // TODO add your handling code here:
-        if (resourcesListSelecResources.getSelectedValue() != null) {
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el recurso?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            if (resourcesListSelecResources.getSelectedValue() != null) {
 
-            try {
-                String query = " DELETE FROM resource WHERE name = ?";
+                try {
+                    String query = " DELETE FROM resource WHERE name = ?";
 
-                PreparedStatement preparedStmt = connection.prepareStatement(query);
-                preparedStmt.setString(1, resourcesListSelecResources.getSelectedValue());
-                preparedStmt.execute();
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
+                    PreparedStatement preparedStmt = connection.prepareStatement(query);
+                    preparedStmt.setString(1, resourcesListSelecResources.getSelectedValue());
+                    preparedStmt.execute();
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                SelectResource select = new SelectResource(project, developer2);
+                select.setLocationRelativeTo(null);
+                select.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un recurso");
             }
-            SelectResource select = new SelectResource(project, developer2);
-            select.setLocationRelativeTo(null);
-            select.setVisible(true);
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un recurso");
         }
     }//GEN-LAST:event_remSelecResourcesActionPerformed
 

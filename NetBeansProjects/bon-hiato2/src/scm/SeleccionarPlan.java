@@ -30,34 +30,33 @@ public class SeleccionarPlan extends javax.swing.JFrame {
     Connection connection = bd.conexion();
     public String proy;
     private String developer2;
-    
+
     List<String> plan = new ArrayList<>();
-    
+
     public SeleccionarPlan() {
         initComponents();
     }
-    
-   
-    public SeleccionarPlan(String project,String dev){
-        initComponents();
-        proy= project;
-        developer2=dev;
 
-        try{
+    public SeleccionarPlan(String project, String dev) {
+        initComponents();
+        proy = project;
+        developer2 = dev;
+
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from contingencia");
-            
-            while(rs.next()){
-                    plan.add(rs.getString("name"));
+
+            while (rs.next()) {
+                plan.add(rs.getString("name"));
 
             }
-            if(plan.size()>0){
+            if (plan.size() > 0) {
                 String[] mylist = new String[plan.size()];
                 mylist = plan.toArray(mylist);
                 planesListSelecPlan.setListData(mylist);
             }
-            
-        }catch(SQLException e){
+
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
     }
@@ -159,25 +158,29 @@ public class SeleccionarPlan extends javax.swing.JFrame {
 
     private void remSelecPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remSelecPlanActionPerformed
         // TODO add your handling code here:
-        try{
-            String query = " DELETE FROM contingencia WHERE name = ?";
-            
-        PreparedStatement preparedStmt = connection.prepareStatement(query);
-        preparedStmt.setString(1, planesListSelecPlan.getSelectedValue());
-        preparedStmt.execute();
-        }catch(SQLException | HeadlessException e){
-            JOptionPane.showMessageDialog(null, e);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el plan de contingencia??", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            try {
+                String query = " DELETE FROM contingencia WHERE name = ?";
+
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, planesListSelecPlan.getSelectedValue());
+                preparedStmt.execute();
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            SeleccionarPlan pr = new SeleccionarPlan(proy, developer2);
+            pr.setLocationRelativeTo(null);
+            pr.setVisible(true);
+            dispose();
         }
-        SeleccionarPlan pr = new SeleccionarPlan(proy,developer2);
-        pr.setLocationRelativeTo(null);
-        pr.setVisible(true);
-        dispose();
-        
+
     }//GEN-LAST:event_remSelecPlanActionPerformed
 
     private void canSelecPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canSelecPlanActionPerformed
         // TODO add your handling code here:
-        Gestion gestion = new Gestion(proy,developer2);
+        Gestion gestion = new Gestion(proy, developer2);
         gestion.setLocationRelativeTo(null);
         gestion.setVisible(true);
         dispose();
@@ -185,7 +188,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
 
     private void addSelecPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelecPlanActionPerformed
         // TODO add your handling code here:
-        AddPlanContingencia add = new AddPlanContingencia(proy,developer2);
+        AddPlanContingencia add = new AddPlanContingencia(proy, developer2);
         add.setLocationRelativeTo(null);
         add.setVisible(true);
         dispose();
@@ -193,11 +196,11 @@ public class SeleccionarPlan extends javax.swing.JFrame {
 
     private void viewSelecPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSelecPlanActionPerformed
         // TODO add your handling code here:
-        String contin= planesListSelecPlan.getSelectedValue();
-        if(contin == null){
+        String contin = planesListSelecPlan.getSelectedValue();
+        if (contin == null) {
             JOptionPane.showMessageDialog(null, "Seleccione un plan de contingencia.");
-        }else{
-            VisualizarContingencia v = new VisualizarContingencia(contin,proy,developer2);
+        } else {
+            VisualizarContingencia v = new VisualizarContingencia(contin, proy, developer2);
             v.setLocationRelativeTo(null);
             v.setVisible(true);
             dispose();

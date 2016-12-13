@@ -28,37 +28,37 @@ public class SelectSprint extends javax.swing.JFrame {
     private String proj;
     BD bd = new BD();
     Connection connection = bd.conexion();
-    
-    
+
     List<String> sprint = new ArrayList<>();
     private String developer;
+
     public SelectSprint() {
         initComponents();
     }
-    
-    public SelectSprint(String project,String dev){
-        proj=project;
-        developer=dev;
+
+    public SelectSprint(String project, String dev) {
+        proj = project;
+        developer = dev;
         initComponents();
-        
-        try{
+
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 System.out.println(rs.getString("project"));
                 System.out.println(proj);
-                if(rs.getString("project").equals(proj)){
+                if (rs.getString("project").equals(proj)) {
                     sprint.add(rs.getString("name"));
                 }
             }
-            if(sprint.size()>0){
+            if (sprint.size() > 0) {
                 String[] mylist = new String[sprint.size()];
                 mylist = sprint.toArray(mylist);
                 sprintsListSelecSprint.setListData(mylist);
             }
-            
-        }catch(SQLException e){
+
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
     }
@@ -161,7 +161,7 @@ public class SelectSprint extends javax.swing.JFrame {
 
     private void canSelecSprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canSelecSprintActionPerformed
         // TODO add your handling code here:
-        Gestion gestion = new Gestion(proj,developer);
+        Gestion gestion = new Gestion(proj, developer);
         gestion.setLocationRelativeTo(null);
         gestion.setVisible(true);
         dispose();
@@ -170,10 +170,10 @@ public class SelectSprint extends javax.swing.JFrame {
     private void viewSelecSprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSelecSprintActionPerformed
         // TODO add your handling code here:
         String sprints = sprintsListSelecSprint.getSelectedValue();
-        if(sprints == null){
+        if (sprints == null) {
             JOptionPane.showMessageDialog(null, "Seleccione un sprint.");
-        }else{
-            Visualizar visualizar = new Visualizar(proj,sprints,developer);
+        } else {
+            Visualizar visualizar = new Visualizar(proj, sprints, developer);
             visualizar.setLocationRelativeTo(null);
             visualizar.setVisible(true);
             dispose();
@@ -183,10 +183,10 @@ public class SelectSprint extends javax.swing.JFrame {
     private void addTaskSelecSprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTaskSelecSprintActionPerformed
         // TODO add your handling code here:
         String selec = sprintsListSelecSprint.getSelectedValue();
-        if(selec == null){
+        if (selec == null) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un sprint para añadir tareas.");
-        }else{
-            AddTaskIntoSprint addTask = new AddTaskIntoSprint(proj,selec,developer);
+        } else {
+            AddTaskIntoSprint addTask = new AddTaskIntoSprint(proj, selec, developer);
             addTask.setLocationRelativeTo(null);
             addTask.setVisible(true);
             dispose();
@@ -195,22 +195,26 @@ public class SelectSprint extends javax.swing.JFrame {
 
     private void remSelecSprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remSelecSprintActionPerformed
         // TODO add your handling code here:
-        if(sprintsListSelecSprint.getSelectedValue() == null){
-            JOptionPane.showMessageDialog(null, "Se debe seleccionar un sprint para borrar.");
-        }else{
-            try{
-                String query = " DELETE FROM sprint WHERE name = ?";
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el sprint?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            if (sprintsListSelecSprint.getSelectedValue() == null) {
+                JOptionPane.showMessageDialog(null, "Se debe seleccionar un sprint para borrar.");
+            } else {
+                try {
+                    String query = " DELETE FROM sprint WHERE name = ?";
 
-                PreparedStatement preparedStmt = connection.prepareStatement(query);
-                preparedStmt.setString(1, sprintsListSelecSprint.getSelectedValue());
-                preparedStmt.execute();
-            }catch(SQLException | HeadlessException e){
-                JOptionPane.showMessageDialog(null, e);
+                    PreparedStatement preparedStmt = connection.prepareStatement(query);
+                    preparedStmt.setString(1, sprintsListSelecSprint.getSelectedValue());
+                    preparedStmt.execute();
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                SelectSprint select = new SelectSprint(proj, developer);
+                select.setLocationRelativeTo(null);
+                select.setVisible(true);
+                dispose();
             }
-            SelectSprint select = new SelectSprint(proj,developer);
-            select.setLocationRelativeTo(null);
-            select.setVisible(true);
-            dispose();
         }
     }//GEN-LAST:event_remSelecSprintActionPerformed
 

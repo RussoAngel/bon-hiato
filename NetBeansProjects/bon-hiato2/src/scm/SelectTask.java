@@ -176,19 +176,24 @@ public class SelectTask extends javax.swing.JFrame {
 
     private void remSelecTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remSelecTaskActionPerformed
         // TODO add your handling code here:
-        try{
-            String query = " DELETE FROM task WHERE name = ?";
-            
-        PreparedStatement preparedStmt = connection.prepareStatement(query);
-        preparedStmt.setString(1, tasksListSelecTask.getSelectedValue());
-        preparedStmt.execute();
-        }catch(SQLException | HeadlessException e){
-            JOptionPane.showMessageDialog(null, e);
+
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar la tarea?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            try {
+                String query = " DELETE FROM task WHERE name = ?";
+
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, tasksListSelecTask.getSelectedValue());
+                preparedStmt.execute();
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            SelectTask select = new SelectTask(proy, developer2);
+            select.setLocationRelativeTo(null);
+            select.setVisible(true);
+            dispose();
         }
-        SelectTask select = new SelectTask(proy,developer2);
-        select.setLocationRelativeTo(null);
-        select.setVisible(true);
-        dispose();
     }//GEN-LAST:event_remSelecTaskActionPerformed
 
     /**

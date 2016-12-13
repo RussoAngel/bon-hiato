@@ -43,114 +43,138 @@ public class Visualizar extends javax.swing.JFrame {
     private String develop;
     private String projectname;
     private String duration2;
-    
+
     Connection connection = bd.conexion();
-    
+
     List<String> tareas = new ArrayList<>();
     private String developer;
+
     public Visualizar() {
         initComponents();
     }
-    public Visualizar(String proj,String spr,String dev){
+
+    public Visualizar(String proj, String spr, String dev) {
         initComponents();
-        project=proj;
-        developer=dev;
+        project = proj;
+        developer = dev;
         sprint = spr;
-        try{
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
-            
-            while(rs.next()){
-                
-                if(rs.getString("name").equals(sprint)){
-                    idsprint=rs.getString("id");
+
+            while (rs.next()) {
+
+                if (rs.getString("name").equals(sprint)) {
+                    idsprint = rs.getString("id");
                 }
             }
-        }catch(SQLException e){
-            System.out.println("no se pudo acceder");
-        } 
-        
-        try{
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery("select * from task");
-            
-            while(rs.next()){
-                    if(rs.getString("sprint").equals(idsprint)){
-                         duration+=Integer.parseInt(rs.getString("duration"));
-                    }
-                    
-                         
-            }
-            durationVisualizar.setText(String.valueOf(duration));
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
-        
-        
-        try{
+
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("select * from task");
+
+            while (rs.next()) {
+                if (rs.getString("sprint").equals(idsprint)) {
+                    duration += Integer.parseInt(rs.getString("duration"));
+                }
+
+            }
+            durationVisualizar.setText(String.valueOf(duration));
+        } catch (SQLException e) {
+            System.out.println("no se pudo acceder");
+        }
+
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
-            
-            while(rs.next()){
-                
-                if(rs.getString("name").equals(sprint)){
-                    
+
+            while (rs.next()) {
+
+                if (rs.getString("name").equals(sprint)) {
+
                     fechaIniVisualizar.setText(rs.getString("fechaini"));
-                    String[] fechaini=rs.getString("fechaini").split("-");
-                    Integer diaini=Integer.parseInt(fechaini[2]);
-                    Integer mesini=Integer.parseInt(fechaini[1]);
-                    Integer yearini=Integer.parseInt(fechaini[0]);
-                    
+                    String[] fechaini = rs.getString("fechaini").split("-");
+                    Integer diaini = Integer.parseInt(fechaini[2]);
+                    Integer mesini = Integer.parseInt(fechaini[1]);
+                    Integer yearini = Integer.parseInt(fechaini[0]);
+
                     System.out.println(duration);
-                    mesini=mesini-1;
-                    Calendar calendar = new GregorianCalendar(yearini,mesini,diaini);
+                    mesini = mesini - 1;
+                    Calendar calendar = new GregorianCalendar(yearini, mesini, diaini);
                     System.out.println(calendar.getTime());
                     calendar.add(Calendar.DAY_OF_MONTH, duration);
-                    System.out.println(calendar.getTime()); 
+                    System.out.println(calendar.getTime());
                     String calendario = String.valueOf(calendar.getTime());
                     String[] calen = calendario.split(" ");
-                    String mesnumber="";
-                    String mes=calen[1];
-                    if(mes.equals("Jan"))mesnumber="01";
-                    if(mes.equals("Feb"))mesnumber="02";
-                    if(mes.equals("Mar"))mesnumber="03";
-                    if(mes.equals("Apr"))mesnumber="04";
-                    if(mes.equals("May"))mesnumber="05";
-                    if(mes.equals("Jun"))mesnumber="06";
-                    if(mes.equals("Jul"))mesnumber="07";
-                    if(mes.equals("Aug"))mesnumber="08";
-                    if(mes.equals("Sep"))mesnumber="09";
-                    if(mes.equals("Oct"))mesnumber="10";
-                    if(mes.equals("Nov"))mesnumber="11";
-                    if(mes.equals("Dec"))mesnumber="12";
-        
-                    String calendariofinal = (calen[5] + "-" + mesnumber + "-" +  calen[2]);
+                    String mesnumber = "";
+                    String mes = calen[1];
+                    if (mes.equals("Jan")) {
+                        mesnumber = "01";
+                    }
+                    if (mes.equals("Feb")) {
+                        mesnumber = "02";
+                    }
+                    if (mes.equals("Mar")) {
+                        mesnumber = "03";
+                    }
+                    if (mes.equals("Apr")) {
+                        mesnumber = "04";
+                    }
+                    if (mes.equals("May")) {
+                        mesnumber = "05";
+                    }
+                    if (mes.equals("Jun")) {
+                        mesnumber = "06";
+                    }
+                    if (mes.equals("Jul")) {
+                        mesnumber = "07";
+                    }
+                    if (mes.equals("Aug")) {
+                        mesnumber = "08";
+                    }
+                    if (mes.equals("Sep")) {
+                        mesnumber = "09";
+                    }
+                    if (mes.equals("Oct")) {
+                        mesnumber = "10";
+                    }
+                    if (mes.equals("Nov")) {
+                        mesnumber = "11";
+                    }
+                    if (mes.equals("Dec")) {
+                        mesnumber = "12";
+                    }
+
+                    String calendariofinal = (calen[5] + "-" + mesnumber + "-" + calen[2]);
                     System.out.println(calendariofinal);
                     fechaFinVisualizar.setText(calendariofinal);
                 }
             }
-            
-        }catch(SQLException e){
+
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
-        
-        try{
+
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
-            
-            while(rs.next()){
-                
-                if(rs.getString("sprint").equals(idsprint)){
+
+            while (rs.next()) {
+
+                if (rs.getString("sprint").equals(idsprint)) {
                     tareas.add(rs.getString("name"));
                 }
             }
-            if(tareas.size()>0){
+            if (tareas.size() > 0) {
                 String[] mylist = new String[tareas.size()];
                 mylist = tareas.toArray(mylist);
                 taskListVisualizar.setListData(mylist);
             }
-            
-        }catch(SQLException | HeadlessException e) {
+
+        } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
@@ -280,7 +304,7 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void canVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canVisualizarActionPerformed
         // TODO add your handling code here:
-        SelectSprint selec = new SelectSprint(project,developer);
+        SelectSprint selec = new SelectSprint(project, developer);
         selec.setLocationRelativeTo(null);
         selec.setVisible(true);
         dispose();
@@ -288,50 +312,54 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void remTaskVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remTaskVisualizarActionPerformed
         // TODO add your handling code here:
-        String task=taskListVisualizar.getSelectedValue();
-        if(task == null){
-            JOptionPane.showMessageDialog(null, "Seleccione una tarea para borrar.");
-        }else{
-            try{
-                Statement st = connection.createStatement();
-                ResultSet rs = st.executeQuery("select * from task");
-                while(rs.next()){
-                    if(task.equals(rs.getString("name"))){
-                        name=rs.getString("name");
-                        priority=rs.getString("priority");
-                        description=rs.getString("description");
-                        duration2=rs.getString("duration");
-                        state=rs.getString("state");
-                        hours=rs.getString("hours");
-                        projectname=rs.getString("Projects");
-                        develop=rs.getString("develop");
-                        id= rs.getString("id");
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar la tarea?", "Alerta", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            String task = taskListVisualizar.getSelectedValue();
+            if (task == null) {
+                JOptionPane.showMessageDialog(null, "Seleccione una tarea para borrar.");
+            } else {
+                try {
+                    Statement st = connection.createStatement();
+                    ResultSet rs = st.executeQuery("select * from task");
+                    while (rs.next()) {
+                        if (task.equals(rs.getString("name"))) {
+                            name = rs.getString("name");
+                            priority = rs.getString("priority");
+                            description = rs.getString("description");
+                            duration2 = rs.getString("duration");
+                            state = rs.getString("state");
+                            hours = rs.getString("hours");
+                            projectname = rs.getString("Projects");
+                            develop = rs.getString("develop");
+                            id = rs.getString("id");
+                        }
                     }
+                } catch (SQLException e) {
+                    System.out.println("no se pudo acceder");
                 }
-            }catch(SQLException e){
-                System.out.println("no se pudo acceder");
-            }
-            System.out.println(name+" "+priority+" "+description+" "+duration+" "+state+" "+hours+" "+projectname+" "+develop+" "+id);
-            try {
-                String sql = "UPDATE task set Projects='"+projectname+"',name='"
-                +name+"',duration='"+duration+"',priority='"
-                +priority+"',description='"
-                +description+"',state='"
-                +state+"',hours='"
-                +hours+"',develop='"
-                +develop+"',sprint='"
-                +"0"+"' where id='"
-                +id+"'";
-            PreparedStatement pst=connection.prepareStatement(sql);
-            pst.execute();
+                System.out.println(name + " " + priority + " " + description + " " + duration + " " + state + " " + hours + " " + projectname + " " + develop + " " + id);
+                try {
+                    String sql = "UPDATE task set Projects='" + projectname + "',name='"
+                            + name + "',duration='" + duration + "',priority='"
+                            + priority + "',description='"
+                            + description + "',state='"
+                            + state + "',hours='"
+                            + hours + "',develop='"
+                            + develop + "',sprint='"
+                            + "0" + "' where id='"
+                            + id + "'";
+                    PreparedStatement pst = connection.prepareStatement(sql);
+                    pst.execute();
 
-            } catch (SQLException | HeadlessException e){
-                JOptionPane.showMessageDialog(null, e);
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                Visualizar visualizar = new Visualizar(project, sprint, developer);
+                visualizar.setLocationRelativeTo(null);
+                visualizar.setVisible(true);
+                dispose();
             }
-            Visualizar visualizar= new Visualizar(project,sprint,developer);
-            visualizar.setLocationRelativeTo(null);
-            visualizar.setVisible(true);
-            dispose();
         }
     }//GEN-LAST:event_remTaskVisualizarActionPerformed
 
