@@ -338,7 +338,7 @@ public class Visualizar extends javax.swing.JFrame {
                 } catch (SQLException e) {
                     System.out.println("no se pudo acceder");
                 }
-                System.out.println(name + " " + priority + " " + description + " " + duration + " " + state + " " + hours + " " + projectname + " " + develop + " " + id);
+                System.out.println(name + " " + priority + " " + description + " " + duration2 + " " + state + " " + hours + " " + projectname + " " + develop + " " + id);
                 try {
                     String sql = "UPDATE task set Projects='" + projectname + "',name='"
                             + name + "',duration='" + duration + "',priority='"
@@ -355,6 +355,7 @@ public class Visualizar extends javax.swing.JFrame {
                 } catch (SQLException | HeadlessException e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
+                durationVisualizar.setText(duration2);
                 Visualizar visualizar = new Visualizar(project, sprint, developer);
                 visualizar.setLocationRelativeTo(null);
                 visualizar.setVisible(true);

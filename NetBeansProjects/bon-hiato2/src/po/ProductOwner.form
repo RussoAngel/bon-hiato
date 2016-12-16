@@ -29,12 +29,19 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="remProductOwner" max="32767" attributes="0"/>
                   <Component id="newProductOwner" max="32767" attributes="0"/>
-                  <Component id="selectProductOwner" max="32767" attributes="0"/>
                   <Component id="projectProductOwner" max="32767" attributes="0"/>
-                  <Component id="productOwnerSelector" max="32767" attributes="0"/>
+                  <Component id="productOwnerSelector" pref="133" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-              <Component id="logoutProductOwner" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="logoutProductOwner" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="selectProductOwner" min="-2" pref="95" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -44,18 +51,21 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="logoutProductOwner" min="-2" max="-2" attributes="0"/>
-                  <Component id="productOwnerSelector" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="logoutProductOwner" min="-2" max="-2" attributes="0"/>
+                          <Component id="productOwnerSelector" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="projectProductOwner" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="selectProductOwner" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="projectProductOwner" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Component id="selectProductOwner" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="newProductOwner" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="remProductOwner" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace pref="122" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,7 +88,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="selectProductOwner">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Seleccionar Proyecto"/>
+        <Property name="text" type="java.lang.String" value="Seleccionar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectProductOwnerActionPerformed"/>

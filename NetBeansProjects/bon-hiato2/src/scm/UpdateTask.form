@@ -4,6 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Scrum master - Actualizar tarea"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -27,24 +28,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nameUpdateTask" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="updateTaskName" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              <Component id="priorityUpdateTask" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="51" max="32767" attributes="0"/>
-                              <Component id="updateTaskPriority" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="developerUpdateTask" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -53,20 +36,29 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="nameUpdateTask" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="updateTaskName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="updateTaskPriority" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="priorityComboBox" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <Component id="updateTaskDeveloper" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="accUpdateTask" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="canUpdateTask" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="hoursUpdateTask" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                   <Component id="updateTaskHours" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="stateUpdateTask" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="updateTaskState" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="updateTaskState" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="priorityStateComboBox" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
@@ -89,8 +81,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nameUpdateTask" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="stateUpdateTask" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="priorityUpdateTask" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="priorityComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="priorityStateComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -130,7 +122,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="updateTaskPriority">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Prioridad (0-5)"/>
+        <Property name="text" type="java.lang.String" value="Prioridad"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="updateTaskDescription">
@@ -138,11 +130,9 @@
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="priorityUpdateTask">
-    </Component>
     <Component class="javax.swing.JLabel" name="updateTaskState">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Estado (0-3)"/>
+        <Property name="text" type="java.lang.String" value="Estado"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="scroll">
@@ -160,8 +150,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="stateUpdateTask">
-    </Component>
     <Component class="javax.swing.JButton" name="canUpdateTask">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
@@ -189,6 +177,37 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Horas"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="priorityComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="0 - Muy Baja"/>
+            <StringItem index="1" value="1 - Baja"/>
+            <StringItem index="2" value="2 - Media"/>
+            <StringItem index="3" value="3 - Alta"/>
+            <StringItem index="4" value="4 - Muy Alta"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="priorityStateComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="0 - Creada"/>
+            <StringItem index="1" value="1 - En Desarrollo"/>
+            <StringItem index="2" value="2 - Finalizada"/>
+            <StringItem index="3" value="3 - Bloqueada"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

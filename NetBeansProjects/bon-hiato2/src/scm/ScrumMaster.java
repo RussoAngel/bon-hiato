@@ -62,6 +62,7 @@ public class ScrumMaster extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Scrum master");
+        setResizable(false);
 
         gestionScrumMaster.setText("Gestion");
         gestionScrumMaster.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +71,7 @@ public class ScrumMaster extends javax.swing.JFrame {
             }
         });
 
-        workScrumMaster.setText("Trabajar");
+        workScrumMaster.setText("Trabajar como Developer");
         workScrumMaster.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workScrumMasterActionPerformed(evt);
@@ -104,7 +105,7 @@ public class ScrumMaster extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(79, 79, 79)
                                 .addComponent(selectorScrumMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(gestionScrumMaster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(workScrumMaster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -146,6 +147,7 @@ public class ScrumMaster extends javax.swing.JFrame {
     private void gestionScrumMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionScrumMasterActionPerformed
         // TODO add your handling code here:
         Gestion gestion = new Gestion(selectorScrumMaster.getSelectedItem(),develop);
+        gestion.setTitle(selectorScrumMaster.getSelectedItem());
         gestion.setLocationRelativeTo(null);
         gestion.setVisible(true);
         dispose();

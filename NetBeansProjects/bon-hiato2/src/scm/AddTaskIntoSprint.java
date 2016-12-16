@@ -174,6 +174,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
                         priority=rs.getString("priority");
                         description=rs.getString("description");
                         duration=rs.getString("duration");
+                        System.out.println("Esta tarea tiene una duracion de: " + duration);
                         state=rs.getString("state");
                         hours=rs.getString("hours");
                         projectname=rs.getString("Projects");
@@ -200,6 +201,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
+            
             AddTaskIntoSprint addtask= new AddTaskIntoSprint(project,sprint,developer2);
             addtask.setLocationRelativeTo(null);
             addtask.setVisible(true);

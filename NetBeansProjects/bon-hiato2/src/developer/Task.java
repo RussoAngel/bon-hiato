@@ -102,6 +102,7 @@ public class Task extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Developer - Panel de tareas");
+        setResizable(false);
 
         tasksTitle.setText("Proyecto Actual");
 
@@ -123,7 +124,7 @@ public class Task extends javax.swing.JFrame {
             }
         });
 
-        infTasks.setText("Informar");
+        infTasks.setText("Informe de Riesgos");
         infTasks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infTasksActionPerformed(evt);

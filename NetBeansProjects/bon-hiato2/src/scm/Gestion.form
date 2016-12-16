@@ -26,25 +26,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="estimarGestion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="addTaskGestion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="modTaskGestion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="addSprintsGestion" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="estimarGestion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="addTaskGestion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="modTaskGestion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="addSprintsGestion" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="planesGestion" max="32767" attributes="0"/>
+                          <Component id="sprintsGestion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="addResourcesGestion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="informesGestion" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="currentProject" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="canGestion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="planesGestion" max="32767" attributes="0"/>
-                  <Component id="sprintsGestion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="addResourcesGestion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="informesGestion" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="canGestion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,7 +57,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="canGestion" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="canGestion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="currentProject" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addTaskGestion" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -150,6 +158,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="canGestionActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="currentProject">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n del Proyecto:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
