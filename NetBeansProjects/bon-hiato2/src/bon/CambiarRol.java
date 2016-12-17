@@ -180,21 +180,24 @@ public class CambiarRol extends javax.swing.JFrame {
     private void despedirCambiarRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirCambiarRolActionPerformed
         // TODO add your handling code here:
         if(String.valueOf(passCambiarRol.getPassword()).equals("1234")){
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres despedir a esta persona?");
+            if(respuesta==0){
+                      
             
-                  
-            try{
-                String query = "DELETE FROM login WHERE name = ?";
+                try{
+                    String query = "DELETE FROM login WHERE name = ?";
 
-            PreparedStatement preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setString(1, deve[0]);
-            preparedStmt.execute();
-            }catch(SQLException | HeadlessException e){
-                JOptionPane.showMessageDialog(null, e);
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, deve[0]);
+                preparedStmt.execute();
+                }catch(SQLException | HeadlessException e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                Personal pr = new Personal();
+                pr.setLocationRelativeTo(null);
+                pr.setVisible(true);
+                dispose();
             }
-            Personal pr = new Personal();
-            pr.setLocationRelativeTo(null);
-            pr.setVisible(true);
-            dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Introduzca la contraseña de admin correctamente");
         }

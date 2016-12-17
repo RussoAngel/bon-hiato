@@ -56,6 +56,7 @@ public class Visualizar extends javax.swing.JFrame {
         project=proj;
         developer=dev;
         sprint = spr;
+        sprintNameVisualizar.setText("<Html>"+project+" /"+sprint+" /VisualizarSprint</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
@@ -289,9 +290,12 @@ public class Visualizar extends javax.swing.JFrame {
     private void remTaskVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remTaskVisualizarActionPerformed
         // TODO add your handling code here:
         String task=taskListVisualizar.getSelectedValue();
+        
         if(task == null){
             JOptionPane.showMessageDialog(null, "Seleccione una tarea para borrar.");
         }else{
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar esta tarea del sprint?");
+            if(respuesta==0){
             try{
                 Statement st = connection.createStatement();
                 ResultSet rs = st.executeQuery("select * from task");
@@ -332,6 +336,7 @@ public class Visualizar extends javax.swing.JFrame {
             visualizar.setLocationRelativeTo(null);
             visualizar.setVisible(true);
             dispose();
+            }
         }
     }//GEN-LAST:event_remTaskVisualizarActionPerformed
 

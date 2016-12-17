@@ -38,7 +38,7 @@ public class EstimarTarea extends javax.swing.JFrame {
         taskname=sel;
         developer2=dev;
         initComponents();
-        
+        jLabel1.setText("<Html>"+project+"/EstimarDuracionTarea</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -90,6 +90,7 @@ public class EstimarTarea extends javax.swing.JFrame {
         developerEstimarTarea = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         descriptionEstimarTarea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -134,9 +135,12 @@ public class EstimarTarea extends javax.swing.JFrame {
 
         developerEstimarTarea.setText("jLabel12");
 
+        descriptionEstimarTarea.setEditable(false);
         descriptionEstimarTarea.setColumns(20);
         descriptionEstimarTarea.setRows(5);
         scroll.setViewportView(descriptionEstimarTarea);
+
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,14 +160,16 @@ public class EstimarTarea extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(estimarTareaName)
                                     .addComponent(nameEstimarTarea))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(priorityEstimarTarea)
                                     .addComponent(estimarTareaPriority, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(69, 69, 69))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(accEstimarTarea)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(accEstimarTarea)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -171,7 +177,8 @@ public class EstimarTarea extends javax.swing.JFrame {
                                         .addComponent(estimarTareaDuration))
                                     .addComponent(durationEstimarTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(canEstimarTarea)
@@ -184,7 +191,9 @@ public class EstimarTarea extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(estimarTareaName)
                     .addComponent(estimarTareaPriority)
@@ -209,7 +218,7 @@ public class EstimarTarea extends javax.swing.JFrame {
                         .addComponent(durationEstimarTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(hoursEstimarTarea)
                     .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(accEstimarTarea)
                     .addComponent(canEstimarTarea))
@@ -245,7 +254,7 @@ public class EstimarTarea extends javax.swing.JFrame {
             +id+"'";
             PreparedStatement pst=connection.prepareStatement(sql);
             pst.execute();
-                
+            JOptionPane.showMessageDialog(null, "Se le ha estimado la duración de la tarea: "+nameEstimarTarea.getText());
         } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -305,6 +314,7 @@ public class EstimarTarea extends javax.swing.JFrame {
     private javax.swing.JLabel estimarTareaPriority;
     private javax.swing.JLabel estimarTareaState;
     private javax.swing.JLabel hoursEstimarTarea;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameEstimarTarea;
     private javax.swing.JLabel priorityEstimarTarea;
     private javax.swing.JScrollPane scroll;

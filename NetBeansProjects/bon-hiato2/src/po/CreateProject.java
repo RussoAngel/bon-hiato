@@ -26,8 +26,14 @@ public class CreateProject extends javax.swing.JFrame {
      */
     BD bd = new BD();
     Connection connection = bd.conexion();
+    private String develop;
     public CreateProject() {      
         initComponents();
+    }
+    public CreateProject(String deve){
+        initComponents();
+        jLabel1.setText("<Html>CrearProyecto</Html>");
+        develop=deve;
     }
 
     /**
@@ -46,6 +52,7 @@ public class CreateProject extends javax.swing.JFrame {
         descriptionCreateProject = new javax.swing.JTextArea();
         accCreateProject = new javax.swing.JButton();
         canCreateProject = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -72,12 +79,14 @@ public class CreateProject extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(153, 153, 153)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(createProjectDescription)
                     .addComponent(nameCreateProject, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -87,25 +96,28 @@ public class CreateProject extends javax.swing.JFrame {
                             .addComponent(canCreateProject)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(accCreateProject, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(scroll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addComponent(scroll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(createProjectName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameCreateProject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(createProjectDescription)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(canCreateProject)
                     .addComponent(accCreateProject))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -128,11 +140,13 @@ public class CreateProject extends javax.swing.JFrame {
 
                 // execute the preparedstatement
                 preparedStmt.execute();
+                JOptionPane.showMessageDialog(null,"Se ha creado el proyecto "+nameCreateProject.getText()+" con éxito");
 
             }catch(SQLException | HeadlessException e){
                 JOptionPane.showMessageDialog(null, e);
             }
-            ProductOwner pr = new ProductOwner();
+            
+            ProductOwner pr = new ProductOwner(develop);
             pr.setLocationRelativeTo(null);
             pr.setVisible(true);
             dispose();
@@ -142,7 +156,7 @@ public class CreateProject extends javax.swing.JFrame {
 
     private void canCreateProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canCreateProjectActionPerformed
         // TODO add your handling code here:
-        ProductOwner pr = new ProductOwner();
+        ProductOwner pr = new ProductOwner(develop);
         pr.setLocationRelativeTo(null);
         pr.setVisible(true);
         dispose();
@@ -189,6 +203,7 @@ public class CreateProject extends javax.swing.JFrame {
     private javax.swing.JLabel createProjectDescription;
     private javax.swing.JLabel createProjectName;
     private javax.swing.JTextArea descriptionCreateProject;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nameCreateProject;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables

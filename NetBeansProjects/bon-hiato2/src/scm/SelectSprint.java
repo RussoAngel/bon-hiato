@@ -40,7 +40,7 @@ public class SelectSprint extends javax.swing.JFrame {
         proj=project;
         developer=dev;
         initComponents();
-        
+        selecSprintLab.setText("<Html>"+proj+"/SeleccionarSprint</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
@@ -76,7 +76,7 @@ public class SelectSprint extends javax.swing.JFrame {
         viewSelecSprint = new javax.swing.JButton();
         canSelecSprint = new javax.swing.JButton();
         scroll = new javax.swing.JScrollPane();
-        sprintsListSelecSprint = new javax.swing.JList<String>();
+        sprintsListSelecSprint = new javax.swing.JList<>();
         addTaskSelecSprint = new javax.swing.JButton();
         remSelecSprint = new javax.swing.JButton();
 
@@ -123,6 +123,9 @@ public class SelectSprint extends javax.swing.JFrame {
                 .addGap(127, 127, 127)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(selecSprintLab, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                         .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -130,10 +133,7 @@ public class SelectSprint extends javax.swing.JFrame {
                             .addComponent(viewSelecSprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(addTaskSelecSprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(canSelecSprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(49, 49, 49))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(selecSprintLab, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,19 +198,22 @@ public class SelectSprint extends javax.swing.JFrame {
         if(sprintsListSelecSprint.getSelectedValue() == null){
             JOptionPane.showMessageDialog(null, "Se debe seleccionar un sprint para borrar.");
         }else{
-            try{
-                String query = " DELETE FROM sprint WHERE name = ?";
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar este sprint?");
+            if(respuesta==0){
+                try{
+                    String query = " DELETE FROM sprint WHERE name = ?";
 
-                PreparedStatement preparedStmt = connection.prepareStatement(query);
-                preparedStmt.setString(1, sprintsListSelecSprint.getSelectedValue());
-                preparedStmt.execute();
-            }catch(SQLException | HeadlessException e){
-                JOptionPane.showMessageDialog(null, e);
+                    PreparedStatement preparedStmt = connection.prepareStatement(query);
+                    preparedStmt.setString(1, sprintsListSelecSprint.getSelectedValue());
+                    preparedStmt.execute();
+                }catch(SQLException | HeadlessException e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                SelectSprint select = new SelectSprint(proj,developer);
+                select.setLocationRelativeTo(null);
+                select.setVisible(true);
+                dispose();
             }
-            SelectSprint select = new SelectSprint(proj,developer);
-            select.setLocationRelativeTo(null);
-            select.setVisible(true);
-            dispose();
         }
     }//GEN-LAST:event_remSelecSprintActionPerformed
 

@@ -24,6 +24,7 @@ public class Gestion extends javax.swing.JFrame {
         initComponents();
         proj=project;
         develop=dev;
+        jLabel1.setText("<Html>"+proj +"/Gestión</Html>");
     }
 
     /**
@@ -44,6 +45,7 @@ public class Gestion extends javax.swing.JFrame {
         estimarGestion = new javax.swing.JButton();
         addResourcesGestion = new javax.swing.JButton();
         canGestion = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -111,6 +113,8 @@ public class Gestion extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,7 +134,9 @@ public class Gestion extends javax.swing.JFrame {
                     .addComponent(informesGestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(canGestion)
                 .addGap(27, 27, 27))
         );
@@ -138,7 +144,9 @@ public class Gestion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(canGestion)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(canGestion)
+                    .addComponent(jLabel1))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addTaskGestion)
@@ -276,6 +284,7 @@ public class Gestion extends javax.swing.JFrame {
     private javax.swing.JButton canGestion;
     private javax.swing.JButton estimarGestion;
     private javax.swing.JButton informesGestion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton modTaskGestion;
     private javax.swing.JButton planesGestion;
     private javax.swing.JButton sprintsGestion;

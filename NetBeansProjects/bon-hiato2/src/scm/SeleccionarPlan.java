@@ -42,7 +42,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
         initComponents();
         proy= project;
         developer2=dev;
-
+        jLabel1.setText("<Html>"+proy+"/SeleccionarPlan</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from contingencia");
@@ -78,6 +78,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
         viewSelecPlan = new javax.swing.JButton();
         canSelecPlan = new javax.swing.JButton();
         selecPlanLab = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -114,29 +115,36 @@ public class SeleccionarPlan extends javax.swing.JFrame {
 
         selecPlanLab.setText("Planes de contingencia");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(viewSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(remSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(canSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(37, 37, 37))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(selecPlanLab, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(113, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(viewSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(remSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(canSelecPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(selecPlanLab)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,20 +167,26 @@ public class SeleccionarPlan extends javax.swing.JFrame {
 
     private void remSelecPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remSelecPlanActionPerformed
         // TODO add your handling code here:
-        try{
-            String query = " DELETE FROM contingencia WHERE name = ?";
-            
-        PreparedStatement preparedStmt = connection.prepareStatement(query);
-        preparedStmt.setString(1, planesListSelecPlan.getSelectedValue());
-        preparedStmt.execute();
-        }catch(SQLException | HeadlessException e){
-            JOptionPane.showMessageDialog(null, e);
+        if (planesListSelecPlan.getSelectedValue() != null) {
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar este plan?");
+            if(respuesta==0){
+                try{
+                    String query = " DELETE FROM contingencia WHERE name = ?";
+
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, planesListSelecPlan.getSelectedValue());
+                preparedStmt.execute();
+                }catch(SQLException | HeadlessException e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                SeleccionarPlan pr = new SeleccionarPlan(proy,developer2);
+                pr.setLocationRelativeTo(null);
+                pr.setVisible(true);
+                dispose();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un plan");
         }
-        SeleccionarPlan pr = new SeleccionarPlan(proy,developer2);
-        pr.setLocationRelativeTo(null);
-        pr.setVisible(true);
-        dispose();
-        
     }//GEN-LAST:event_remSelecPlanActionPerformed
 
     private void canSelecPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canSelecPlanActionPerformed
@@ -242,6 +256,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addSelecPlan;
     private javax.swing.JButton canSelecPlan;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> planesListSelecPlan;
     private javax.swing.JButton remSelecPlan;
     private javax.swing.JScrollPane scroll;

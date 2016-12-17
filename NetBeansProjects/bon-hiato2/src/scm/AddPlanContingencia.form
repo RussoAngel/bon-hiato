@@ -24,75 +24,62 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="addPlanPerdida" min="-2" max="-2" attributes="0"/>
-                          <Component id="perdidaAddPlan" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="addPlanProbabilidad" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Component id="addPlanPerdida" min="-2" max="-2" attributes="0"/>
+                  <Component id="perdidaAddPlan" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="addPlanProbabilidad" min="-2" max="-2" attributes="0"/>
+                  <Component id="addPlanName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="probabilidadAddPlan" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="nameAddPlan" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="accAddPlan" min="-2" pref="71" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="canAddPlan" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="prevencionAddPlan" pref="81" max="32767" attributes="0"/>
-                              <Component id="medidaAddPlan" alignment="0" max="32767" attributes="0"/>
+                              <Component id="prevencionAddPlan" max="32767" attributes="0"/>
+                              <Component id="medidaAddPlan" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                           <Component id="addPlanPrevencion" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="addPlanMedida" min="-2" max="-2" attributes="0"/>
                           <Component id="addPlanDescription" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="addPlanName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="probabilidadAddPlan" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="nameAddPlan" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="accAddPlan" min="-2" pref="71" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="canAddPlan" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
-                      <Component id="scroll" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="scroll" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="216" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addPlanName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addPlanPrevencion" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameAddPlan" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="prevencionAddPlan" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addPlanMedida" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addPlanPerdida" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="medidaAddPlan" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="perdidaAddPlan" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <Component id="addPlanName" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="nameAddPlan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="addPlanPerdida" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="perdidaAddPlan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="addPlanProbabilidad" min="-2" pref="16" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="probabilidadAddPlan" min="-2" max="-2" attributes="0"/>
@@ -103,12 +90,20 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
+                      <Component id="addPlanPrevencion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="prevencionAddPlan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="addPlanMedida" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="medidaAddPlan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="addPlanDescription" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="scroll" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -167,7 +162,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="addPlanProbabilidad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Probabilidad"/>
+        <Property name="text" type="java.lang.String" value="Probabilidad(0-100%)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="addPlanDescription">
@@ -190,6 +185,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="canAddPlanActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

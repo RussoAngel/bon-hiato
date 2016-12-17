@@ -40,6 +40,7 @@ public class SelectResource extends javax.swing.JFrame {
         initComponents();
         project = proj;
         developer2 = dev;
+        jLabel1.setText("<Html>"+project+"/SeleccionarRecurso</Html>");
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from resource");
@@ -73,11 +74,12 @@ public class SelectResource extends javax.swing.JFrame {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         scroll = new javax.swing.JScrollPane();
-        resourcesListSelecResources = new javax.swing.JList<String>();
+        resourcesListSelecResources = new javax.swing.JList<>();
         selecResourcesLab = new javax.swing.JLabel();
         addSelecResources = new javax.swing.JButton();
         remSelecResources = new javax.swing.JButton();
         canSelecResources = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -109,6 +111,8 @@ public class SelectResource extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,17 +128,21 @@ public class SelectResource extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(selecResourcesLab))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(143, 143, 143)
-                        .addComponent(canSelecResources)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(canSelecResources))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(selecResourcesLab)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(selecResourcesLab)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -176,20 +184,22 @@ public class SelectResource extends javax.swing.JFrame {
     private void remSelecResourcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remSelecResourcesActionPerformed
         // TODO add your handling code here:
         if (resourcesListSelecResources.getSelectedValue() != null) {
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar esta tarea?");
+            if(respuesta==0){
+                try {
+                    String query = " DELETE FROM resource WHERE name = ?";
 
-            try {
-                String query = " DELETE FROM resource WHERE name = ?";
-
-                PreparedStatement preparedStmt = connection.prepareStatement(query);
-                preparedStmt.setString(1, resourcesListSelecResources.getSelectedValue());
-                preparedStmt.execute();
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
+                    PreparedStatement preparedStmt = connection.prepareStatement(query);
+                    preparedStmt.setString(1, resourcesListSelecResources.getSelectedValue());
+                    preparedStmt.execute();
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                SelectResource select = new SelectResource(project, developer2);
+                select.setLocationRelativeTo(null);
+                select.setVisible(true);
+                dispose();
             }
-            SelectResource select = new SelectResource(project, developer2);
-            select.setLocationRelativeTo(null);
-            select.setVisible(true);
-            dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Debe seleccionar un recurso");
         }
@@ -233,6 +243,7 @@ public class SelectResource extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addSelecResources;
     private javax.swing.JButton canSelecResources;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton remSelecResources;
     private javax.swing.JList<String> resourcesListSelecResources;

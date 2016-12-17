@@ -41,7 +41,7 @@ public class Inform extends javax.swing.JFrame {
                 if((rs.getString("project").equals(project)) && (inform.equals(rs.getString("tittle")))){
                     description.setText(rs.getString("description"));
                     developerInform.setText(rs.getString("develop"));
-                    titleInform.setText(rs.getString("tittle"));
+                    titleInform.setText("<Html>"+proj+" /Informe /" +rs.getString("tittle") +"</Html>");
                 }
             }
             }catch(SQLException e){

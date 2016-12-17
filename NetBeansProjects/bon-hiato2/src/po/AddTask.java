@@ -29,13 +29,20 @@ public class AddTask extends javax.swing.JFrame {
     private String proj;
     private int id;
     private Identificador identificador;
+    private String develop;
     public AddTask() {
         initComponents();
     }
-    public AddTask(String project){
+    public AddTask(String project,String deve){
         proj=project;
+        develop=deve;
         initComponents();
-        priorityRulesAddTask.setText("<html>0 - Sin prioridad <br> 1 - Poca prioridad <br> 5 - Máxima prioridad</html>");
+        jLabel1.setText("<Html>"+proj +"/AddTask</Html>");
+        jComboBox1.addItem("0 - Sin prioridad");
+        jComboBox1.addItem("1 - Poca prioridad");
+        jComboBox1.addItem("2 - Prioridad media");
+        jComboBox1.addItem("3 - Alta prioridad");
+
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -60,13 +67,13 @@ public class AddTask extends javax.swing.JFrame {
         addTaskName = new javax.swing.JLabel();
         nameAddTask = new javax.swing.JTextField();
         addTaskPriority = new javax.swing.JLabel();
-        priorityAddTask = new javax.swing.JTextField();
         addTaskDescription = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         descriptionAddTask = new javax.swing.JTextArea();
         accAddTask = new javax.swing.JButton();
         canAddTask = new javax.swing.JButton();
-        priorityRulesAddTask = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -74,8 +81,6 @@ public class AddTask extends javax.swing.JFrame {
         addTaskName.setText("Nombre de la Tarea");
 
         addTaskPriority.setText("Prioridad (0-5)");
-
-        priorityAddTask.setText("0");
 
         addTaskDescription.setText("Descripción");
 
@@ -97,14 +102,14 @@ public class AddTask extends javax.swing.JFrame {
             }
         });
 
-        priorityRulesAddTask.setText("0 -Sin prioridad ");
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addTaskName)
                     .addComponent(nameAddTask, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,32 +122,35 @@ public class AddTask extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addTaskPriority)
-                    .addComponent(priorityAddTask, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priorityRulesAddTask, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addTaskName)
                     .addComponent(addTaskPriority))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameAddTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priorityAddTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addTaskDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priorityRulesAddTask))
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(canAddTask)
                     .addComponent(accAddTask))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -150,20 +158,19 @@ public class AddTask extends javax.swing.JFrame {
 
     private void canAddTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canAddTaskActionPerformed
         // TODO add your handling code here:
-        ProductBacklog pr = new ProductBacklog(proj);
+        ProductBacklog pr = new ProductBacklog(proj,develop);
         pr.setLocationRelativeTo(null);
         pr.setVisible(true);
         dispose();
     }//GEN-LAST:event_canAddTaskActionPerformed
 private int getPriority(){
-    return Integer.parseInt(priorityAddTask.getText());
+    return jComboBox1.getSelectedIndex();
 }
     private void accAddTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accAddTaskActionPerformed
         // TODO add your handling code here:
         if(nameAddTask.getText().equals("") || descriptionAddTask.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Se tiene que indicar un nombre y una descripción.");
-        }else if(getPriority() > 5 || getPriority() < 0 ){
-            JOptionPane.showMessageDialog(null, "Introduzca una prioridad válida");                      
+                            
         }else{
             try{
                 String query = " insert into task (id, Projects, name, duration, priority, description, state, hours, develop, sprint)"
@@ -175,7 +182,7 @@ private int getPriority(){
                 preparedStmt.setString(2, proj);
                 preparedStmt.setString(3, nameAddTask.getText());
                 preparedStmt.setInt(4, 0);
-                preparedStmt.setInt(5, Integer.parseInt(priorityAddTask.getText()));
+                preparedStmt.setInt(5, getPriority());
                 preparedStmt.setString(6, descriptionAddTask.getText());
                 preparedStmt.setInt(7, 0);
                 preparedStmt.setInt(8, 0);
@@ -186,7 +193,7 @@ private int getPriority(){
             }catch(SQLException | HeadlessException e){
                 JOptionPane.showMessageDialog(null, e);
             }
-            ProductBacklog pr = new ProductBacklog(proj);
+            ProductBacklog pr = new ProductBacklog(proj,develop);
             pr.setLocationRelativeTo(null);
             pr.setVisible(true);
             dispose();
@@ -235,9 +242,9 @@ private int getPriority(){
     private javax.swing.JLabel addTaskPriority;
     private javax.swing.JButton canAddTask;
     private javax.swing.JTextArea descriptionAddTask;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nameAddTask;
-    private javax.swing.JTextField priorityAddTask;
-    private javax.swing.JLabel priorityRulesAddTask;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
 }

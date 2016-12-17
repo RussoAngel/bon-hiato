@@ -56,7 +56,7 @@ public class Login extends javax.swing.JFrame {
                     success = true;
                     dispose();
                 }else if(usuario.equals(rs.getString("name")) && password.equals(rs.getString("password")) && pd.equals(rs.getString("type"))){
-                    ProductOwner productOwner = new ProductOwner();
+                    ProductOwner productOwner = new ProductOwner(rs.getString("name"));
                     productOwner.setLocationRelativeTo(null);
                     productOwner.setVisible(true);
                     success = true;

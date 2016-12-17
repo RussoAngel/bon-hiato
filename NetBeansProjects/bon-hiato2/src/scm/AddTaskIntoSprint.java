@@ -38,6 +38,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
     private String develop;
     private String idSprint;
     private String projectname;
+
     BD bd = new BD();
     Connection connection = bd.conexion();
     
@@ -51,11 +52,13 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
         project=proj;
         developer2=dev;
         sprint=spr;
+        jLabel1.setText("<Html>"+project+" /"+sprint+" /AñadirTarea</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
             
             while(rs.next()){
+                
                 if(rs.getString("sprint").equals("0") && rs.getString("Projects").equals(project)){
                     tareas.add(rs.getString("name"));
                 }
@@ -81,6 +84,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
                 if((sprint.equals(rs.getString("name")) && (project.equals(rs.getString("project"))))){
                     idSprint=rs.getString("id");
                 }
+
             }
         }catch(SQLException e){
             System.out.println("no se pudo acceder");
@@ -97,10 +101,11 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
-        taskListAddToSprint = new javax.swing.JList<String>();
+        taskListAddToSprint = new javax.swing.JList<>();
         accAddToSprint = new javax.swing.JButton();
         canAddToSprint = new javax.swing.JButton();
         addToSprintTasks = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -123,28 +128,34 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
 
         addToSprintTasks.setText("Seleccionar Tarea");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
                         .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(canAddToSprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(accAddToSprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(accAddToSprint, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(addToSprintTasks)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addToSprintTasks)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(addToSprintTasks)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -153,7 +164,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(canAddToSprint))
                     .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -194,8 +205,9 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
                 +develop+"',sprint='"
                 +idSprint+"' where id='"
                 +id+"'";
-            PreparedStatement pst=connection.prepareStatement(sql);
-            pst.execute();
+                PreparedStatement pst=connection.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Se ha añadido la tarea " + name + " al sprint: "+sprint+ " ,con éxito");
 
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -254,6 +266,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
     private javax.swing.JButton accAddToSprint;
     private javax.swing.JLabel addToSprintTasks;
     private javax.swing.JButton canAddToSprint;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JList<String> taskListAddToSprint;
     // End of variables declaration//GEN-END:variables

@@ -34,7 +34,10 @@ public class RiskInform extends javax.swing.JFrame {
     }
     
     public RiskInform(String developer,String projectname){
-        
+        develop=developer;
+        projectna=projectname;
+        initComponents();
+        jLabel1.setText("<Html>"+projectna+"/Informe</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from informeriesgo");
@@ -45,9 +48,6 @@ public class RiskInform extends javax.swing.JFrame {
         }catch(SQLException e){
             System.out.println("no se pudo acceder");
         }
-        develop=developer;
-        projectna=projectname;
-        initComponents();
     }
 
     /**
@@ -66,6 +66,7 @@ public class RiskInform extends javax.swing.JFrame {
         canRiskInform = new javax.swing.JButton();
         riskInformTitle = new javax.swing.JLabel();
         riskInformDescription = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -92,34 +93,40 @@ public class RiskInform extends javax.swing.JFrame {
 
         riskInformDescription.setText("Descripción");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scroll1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(scroll1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(canRiskInform, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(accRiskInform, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(accRiskInform, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
+                        .addGap(61, 61, 61)
                         .addComponent(riskInformDescription))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(titleRiskInform, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                            .addComponent(riskInformTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(riskInformTitle)
+                            .addComponent(titleRiskInform, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(riskInformTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titleRiskInform, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,7 +138,7 @@ public class RiskInform extends javax.swing.JFrame {
                 .addComponent(accRiskInform)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(canRiskInform)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -155,12 +162,12 @@ public class RiskInform extends javax.swing.JFrame {
 
                 // execute the preparedstatement
                 preparedStmt.execute();
-
+                JOptionPane.showMessageDialog(null, "Se ha enviado el informe correctamente");
             }catch(SQLException | HeadlessException e){
                 JOptionPane.showMessageDialog(null, e);
             }
             Task task2 = new Task(projectna,develop);
-            task2.setTitle(projectna);
+            task2.tittle(projectna);
             task2.setLocationRelativeTo(null);
             task2.setVisible(true);
             dispose();
@@ -170,7 +177,7 @@ public class RiskInform extends javax.swing.JFrame {
     private void canRiskInformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canRiskInformActionPerformed
         // TODO add your handling code here:
         Task task2 = new Task(projectna,develop);
-        task2.setTitle(projectna);
+        task2.tittle(projectna);
         task2.setLocationRelativeTo(null);
         task2.setVisible(true);
         dispose();
@@ -215,6 +222,7 @@ public class RiskInform extends javax.swing.JFrame {
     private javax.swing.JButton accRiskInform;
     private javax.swing.JButton canRiskInform;
     private javax.swing.JTextArea descriptionRiskInform;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel riskInformDescription;
     private javax.swing.JLabel riskInformTitle;
     private javax.swing.JScrollPane scroll1;

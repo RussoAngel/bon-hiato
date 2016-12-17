@@ -6,10 +6,15 @@
 package scm;
 
 import bon.BD;
+import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +31,7 @@ public class Ingreso extends javax.swing.JFrame {
     private float mul=0;
     private String develop;
     Connection connection = bd.conexion();
+    List<String> ingresos = new ArrayList<>();
     public Ingreso() {
         initComponents();
     }
@@ -33,6 +39,24 @@ public class Ingreso extends javax.swing.JFrame {
         initComponents();
         develop=dev;
         project=proy;
+        jLabel1.setText("<Html>"+project+"/EstimarIngresos</Html>");
+        try{
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("select * from ingreso");
+            
+            while(rs.next()){
+                    ingresos.add(rs.getString("name"));
+
+            }
+            if(ingresos.size()>0){
+                String[] mylist = new String[ingresos.size()];
+                mylist = ingresos.toArray(mylist);
+                listaDeIngresos.setListData(mylist);
+            }
+            
+        }catch(SQLException e){
+            System.out.println("no se pudo acceder");
+        }
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from ingreso");
@@ -60,6 +84,11 @@ public class Ingreso extends javax.swing.JFrame {
         totalIngreso = new javax.swing.JLabel();
         accIngreso = new javax.swing.JButton();
         canIngreso = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaDeIngresos = new javax.swing.JList<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -82,36 +111,69 @@ public class Ingreso extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
+        jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(listaDeIngresos);
+
+        jLabel2.setText("Seleccionar Ingreso");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(totalIngreso)
-                        .addGap(174, 174, 174))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ingresoTotal)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(canIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(accIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(154, 154, 154))))
+                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                .addComponent(accIngreso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(totalIngreso)
+                            .addGap(20, 20, 20)))
+                    .addComponent(canIngreso))
+                .addGap(43, 43, 43))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(ingresoTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(totalIngreso)
-                .addGap(49, 49, 49)
-                .addComponent(accIngreso)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(canIngreso)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ingresoTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(totalIngreso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(accIngreso)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton1)
+                        .addGap(27, 27, 27)
+                        .addComponent(canIngreso))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 5, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40))
         );
 
         pack();
@@ -132,6 +194,30 @@ public class Ingreso extends javax.swing.JFrame {
         estimarIngresos.setVisible(true);
         dispose();
     }//GEN-LAST:event_accIngresoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (listaDeIngresos.getSelectedValue() != null) {
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar este plan?");
+            if(respuesta==0){
+                try{
+                    String query = " DELETE FROM ingreso WHERE name = ?";
+
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, listaDeIngresos.getSelectedValue());
+                preparedStmt.execute();
+                }catch(SQLException | HeadlessException e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                Ingreso pr = new Ingreso(project,develop);
+                pr.setLocationRelativeTo(null);
+                pr.setVisible(true);
+                dispose();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un ingreso");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,6 +258,11 @@ public class Ingreso extends javax.swing.JFrame {
     private javax.swing.JButton accIngreso;
     private javax.swing.JButton canIngreso;
     private javax.swing.JLabel ingresoTotal;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaDeIngresos;
     private javax.swing.JLabel totalIngreso;
     // End of variables declaration//GEN-END:variables
 }

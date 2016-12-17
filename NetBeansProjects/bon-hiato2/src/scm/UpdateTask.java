@@ -41,6 +41,26 @@ public class UpdateTask extends javax.swing.JFrame {
         project = projectname;
         task = taskname;
         developer2 = dev;
+        jLabel1.setText("<Html>"+project +"/ModificarTarea</Html>");
+        priority.addItem("0 - Sin prioridad");
+        priority.addItem("1 - Poca prioridad");
+        priority.addItem("2 - Prioridad media");
+        priority.addItem("3 - Alta prioridad");
+        state.addItem("0 - sin empezar");
+        state.addItem("1 - desarrollo");
+        state.addItem("2 - finalizada");
+        state.addItem("3 - bloqueada");
+        try{
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("select * from login");
+            while(rs.next()){
+                if(rs.getString("type").equals("developer") || rs.getString("type").equals("scrumMaster")){
+                    Developer.addItem(rs.getString("name"));
+                }
+            }
+        }catch(SQLException e){
+            System.out.println("no se pudo acceder");
+        }
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -49,12 +69,12 @@ public class UpdateTask extends javax.swing.JFrame {
 
                 if (rs.getString("name").equals(task) && rs.getString("Projects").equals(project)) {
                     nameUpdateTask.setText(rs.getString("name"));
-                    priorityUpdateTask.setText(rs.getString("priority"));
+                    priority.setSelectedIndex(Integer.parseInt(rs.getString("priority")));
                     descriptionUpdateTask.setText(rs.getString("description"));
                     duration = rs.getString("duration");
-                    stateUpdateTask.setText(rs.getString("state"));
+                    state.setSelectedIndex(Integer.parseInt(rs.getString("state")));
                     hoursUpdateTask.setText(rs.getString("hours"));
-                    developerUpdateTask.setText(rs.getString("develop"));
+                    Developer.setSelectedItem(rs.getString("develop"));
                     id = rs.getString("id");
                     idSprint = rs.getString("sprint");
                 }
@@ -63,6 +83,7 @@ public class UpdateTask extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
+        
     }
 
     /**
@@ -79,16 +100,17 @@ public class UpdateTask extends javax.swing.JFrame {
         nameUpdateTask = new javax.swing.JTextField();
         updateTaskPriority = new javax.swing.JLabel();
         updateTaskDescription = new javax.swing.JLabel();
-        priorityUpdateTask = new javax.swing.JTextField();
         updateTaskState = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         descriptionUpdateTask = new javax.swing.JTextArea();
-        stateUpdateTask = new javax.swing.JTextField();
         canUpdateTask = new javax.swing.JButton();
         updateTaskDeveloper = new javax.swing.JLabel();
         accUpdateTask = new javax.swing.JButton();
-        developerUpdateTask = new javax.swing.JTextField();
         updateTaskHours = new javax.swing.JLabel();
+        Developer = new javax.swing.JComboBox<>();
+        priority = new javax.swing.JComboBox<>();
+        state = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -124,6 +146,8 @@ public class UpdateTask extends javax.swing.JFrame {
 
         updateTaskHours.setText("Horas");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,46 +155,52 @@ public class UpdateTask extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(accUpdateTask)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
+                        .addComponent(canUpdateTask)
+                        .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateTaskName))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nameUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(updateTaskName))
+                            .addComponent(Developer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateTaskDeveloper))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(priorityUpdateTask)
-                                .addGap(69, 69, 69))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(27, 27, 27)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(updateTaskPriority)
+                                            .addComponent(priority, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(54, 54, 54))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addComponent(updateTaskDescription)
+                                        .addGap(65, 65, 65)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(hoursUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(updateTaskHours)
+                                    .addComponent(updateTaskState)
+                                    .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                                .addComponent(updateTaskPriority)
-                                .addGap(54, 54, 54))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(developerUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateTaskDescription)
-                        .addGap(65, 65, 65))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(updateTaskDeveloper)
-                            .addComponent(accUpdateTask))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(canUpdateTask)
-                    .addComponent(hoursUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateTaskHours)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(stateUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(updateTaskState, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(25, 25, 25))
+                                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)))
+                        .addGap(44, 44, 44))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateTaskName)
                     .addComponent(updateTaskPriority)
@@ -178,21 +208,20 @@ public class UpdateTask extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stateUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priorityUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priority, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateTaskHours)
                     .addComponent(updateTaskDeveloper))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(developerUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(hoursUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(updateTaskDescription)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hoursUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateTaskDescription)
+                    .addComponent(Developer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(canUpdateTask)
                     .addComponent(accUpdateTask))
@@ -214,24 +243,21 @@ public class UpdateTask extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (nameUpdateTask.getText().equals("") || descriptionUpdateTask.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tiene que indicar el nombre y la descripción.");
-        } else if (getPriority() > 5 || getPriority() < 0) {
-            JOptionPane.showMessageDialog(null, "Introduzca una prioridad válida");
-        } else if (getTaskState() > 3 || getTaskState() < 0) {
-            JOptionPane.showMessageDialog(null, "Introduzca un estado válido");
+        
         } else {
             try {
                 String sql = "UPDATE task set Projects='" + project + "',name='"
                         + nameUpdateTask.getText() + "',duration='" + duration + "',priority='"
-                        + priorityUpdateTask.getText() + "',description='"
+                        + priority.getSelectedIndex() + "',description='"
                         + descriptionUpdateTask.getText() + "',state='"
-                        + stateUpdateTask.getText() + "',hours='"
+                        + state.getSelectedIndex() + "',hours='"
                         + hoursUpdateTask.getText() + "',develop='"
-                        + developerUpdateTask.getText() + "',sprint='"
+                        + String.valueOf(Developer.getSelectedItem()) + "',sprint='"
                         + idSprint + "' where id='"
                         + id + "'";
                 PreparedStatement pst = connection.prepareStatement(sql);
                 pst.execute();
-
+                JOptionPane.showMessageDialog(null, "se ha modificado correctamente la tarea: "+nameUpdateTask.getText());
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -278,15 +304,16 @@ public class UpdateTask extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Developer;
     private javax.swing.JButton accUpdateTask;
     private javax.swing.JButton canUpdateTask;
     private javax.swing.JTextArea descriptionUpdateTask;
-    private javax.swing.JTextField developerUpdateTask;
     private javax.swing.JTextField hoursUpdateTask;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nameUpdateTask;
-    private javax.swing.JTextField priorityUpdateTask;
+    private javax.swing.JComboBox<String> priority;
     private javax.swing.JScrollPane scroll;
-    private javax.swing.JTextField stateUpdateTask;
+    private javax.swing.JComboBox<String> state;
     private javax.swing.JLabel updateTaskDescription;
     private javax.swing.JLabel updateTaskDeveloper;
     private javax.swing.JLabel updateTaskHours;
@@ -295,11 +322,5 @@ public class UpdateTask extends javax.swing.JFrame {
     private javax.swing.JLabel updateTaskState;
     // End of variables declaration//GEN-END:variables
 
-    private int getPriority() {
-        return Integer.parseInt(priorityUpdateTask.getText());
-    }
-
-    private int getTaskState() {
-        return Integer.parseInt(stateUpdateTask.getText());
-    }
+    
 }

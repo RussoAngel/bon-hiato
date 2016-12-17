@@ -29,15 +29,17 @@ public class ProductBacklog extends javax.swing.JFrame {
     BD bd = new BD();
     Connection connection = bd.conexion();
     String proy;
+    private String develop;
     
     List<String> tareas = new ArrayList<>();
     public ProductBacklog() {
         initComponents();
     }
-    public ProductBacklog(String project){
+    public ProductBacklog(String project,String deve){
         proy= project;
+        develop=deve;
         initComponents();
-        productBacklogProject.setText(proy);
+        productBacklogProject.setText("<Html>"+proy +"/ProductBacklog</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -159,7 +161,7 @@ public class ProductBacklog extends javax.swing.JFrame {
         // TODO add your handling code here:
         String task =tasksProductBacklog.getSelectedValue();
         if(!(task == null)){
-            ModifyTask m = new ModifyTask(proy,task);
+            ModifyTask m = new ModifyTask(proy,task,develop);
             m.setLocationRelativeTo(null);
             m.setVisible(true);
             dispose();
@@ -170,7 +172,7 @@ public class ProductBacklog extends javax.swing.JFrame {
 
     private void canProductBacklogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canProductBacklogActionPerformed
         // TODO add your handling code here:
-        ProductOwner po = new ProductOwner();
+        ProductOwner po = new ProductOwner(develop);
         po.setLocationRelativeTo(null);
         po.setVisible(true);
         dispose();
@@ -179,19 +181,22 @@ public class ProductBacklog extends javax.swing.JFrame {
     private void remProductBacklogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remProductBacklogActionPerformed
         // TODO add your handling code here:
         if(!(tasksProductBacklog.getSelectedValue() == null)){
-            try{
-                String query = "DELETE FROM task WHERE name = ?";
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar esta tarea?");
+            if(respuesta==0){
+                try{
+                    String query = "DELETE FROM task WHERE name = ?";
 
-            PreparedStatement preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setString(1, tasksProductBacklog.getSelectedValue());
-            preparedStmt.execute();
-            }catch(SQLException | HeadlessException e){
-                JOptionPane.showMessageDialog(null, e);
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, tasksProductBacklog.getSelectedValue());
+                preparedStmt.execute();
+                }catch(SQLException | HeadlessException e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                ProductBacklog pr = new ProductBacklog(proy,develop);
+                pr.setLocationRelativeTo(null);
+                pr.setVisible(true);
+                dispose();
             }
-            ProductBacklog pr = new ProductBacklog(proy);
-            pr.setLocationRelativeTo(null);
-            pr.setVisible(true);
-            dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Seleccione una tarea para borrar.");
         }
@@ -199,7 +204,7 @@ public class ProductBacklog extends javax.swing.JFrame {
 
     private void addProductBacklogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductBacklogActionPerformed
         // TODO add your handling code here:
-        AddTask addtask = new AddTask(proy);
+        AddTask addtask = new AddTask(proy,develop);
         addtask.setLocationRelativeTo(null);
         addtask.setVisible(true);
         dispose();

@@ -36,7 +36,7 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
         initComponents();
         proy= project;
         developer2=dev;
-        selecTareaLab.setText(proy);
+        selecTareaLab.setText("<Html>"+proy+"/SeleccionarTareas</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -69,7 +69,7 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
 
         selecTareaLab = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        tasksListSelecTarea = new javax.swing.JList<String>();
+        tasksListSelecTarea = new javax.swing.JList<>();
         accSelecTarea = new javax.swing.JButton();
         canSelecTarea = new javax.swing.JButton();
 
@@ -98,27 +98,25 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(26, 26, 26)
+                        .addComponent(canSelecTarea))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(accSelecTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(selecTareaLab))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(canSelecTarea)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(selecTareaLab, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addComponent(selecTareaLab)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -126,7 +124,7 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
                     .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(canSelecTarea)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         pack();

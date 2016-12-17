@@ -24,6 +24,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
         initComponents();
         develop=dev;
         project=proy;
+        jLabel1.setText("<Html>"+project+"/RealizarEstimación</Html>");
     }
 
     /**
@@ -39,6 +40,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
         gastosRealizarEstimar = new javax.swing.JButton();
         ingresosRealizarEstimar = new javax.swing.JButton();
         canRealizarEstimar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -71,6 +73,8 @@ public class RealizarStimacion extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,13 +85,16 @@ public class RealizarStimacion extends javax.swing.JFrame {
                     .addComponent(canRealizarEstimar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ingresosRealizarEstimar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gastosRealizarEstimar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tasksRealizarEstimar))
-                .addGap(114, 114, 114))
+                    .addComponent(tasksRealizarEstimar)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
+                .addGap(35, 35, 35)
                 .addComponent(tasksRealizarEstimar)
                 .addGap(18, 18, 18)
                 .addComponent(gastosRealizarEstimar)
@@ -175,6 +182,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
     private javax.swing.JButton canRealizarEstimar;
     private javax.swing.JButton gastosRealizarEstimar;
     private javax.swing.JButton ingresosRealizarEstimar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton tasksRealizarEstimar;
     // End of variables declaration//GEN-END:variables
 }

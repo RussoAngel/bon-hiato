@@ -6,10 +6,15 @@
 package scm;
 
 import bon.BD;
+import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +31,7 @@ public class Gastos extends javax.swing.JFrame {
     private float mul=0;
     private float recursos;
     private String developer2;
+    List<String> gastos = new ArrayList<>();
     Connection connection = bd.conexion();
     public Gastos() {
         initComponents();
@@ -33,6 +39,24 @@ public class Gastos extends javax.swing.JFrame {
     public Gastos(String proy,String dev){
         initComponents();
         project=proy;
+        jLabel1.setText("<Html>"+project+"/EstimarGastos</Html>");
+        try{
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("select * from gasto");
+            
+            while(rs.next()){
+                    gastos.add(rs.getString("name"));
+
+            }
+            if(gastos.size()>0){
+                String[] mylist = new String[gastos.size()];
+                mylist = gastos.toArray(mylist);
+                listaDeGastos.setListData(mylist);
+            }
+            
+        }catch(SQLException e){
+            System.out.println("no se pudo acceder");
+        }
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from resource");
@@ -71,6 +95,11 @@ public class Gastos extends javax.swing.JFrame {
         totalGastos = new javax.swing.JLabel();
         accGastos = new javax.swing.JButton();
         canGastos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaDeGastos = new javax.swing.JList<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -93,34 +122,70 @@ public class Gastos extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
+        jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(listaDeGastos);
+
+        jLabel2.setText("Seleccionar gasto");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(canGastos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(accGastos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(gastosTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(159, 159, 159))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(totalGastos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                .addGap(102, 102, 102)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(totalGastos)
+                        .addGap(61, 61, 61))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(canGastos, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                    .addComponent(accGastos, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(gastosTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(gastosTotal)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gastosTotal)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(totalGastos)
-                .addGap(49, 49, 49)
-                .addComponent(accGastos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(canGastos)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(totalGastos)
+                        .addGap(38, 38, 38)
+                        .addComponent(accGastos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(canGastos))
+                    .addComponent(jScrollPane1))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,6 +206,30 @@ public class Gastos extends javax.swing.JFrame {
         realizarStimacion.setVisible(true);
         dispose();
     }//GEN-LAST:event_canGastosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (listaDeGastos.getSelectedValue() != null) {
+            int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar este plan?");
+            if(respuesta==0){
+                try{
+                    String query = " DELETE FROM gasto WHERE name = ?";
+
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, listaDeGastos.getSelectedValue());
+                preparedStmt.execute();
+                }catch(SQLException | HeadlessException e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                Gastos pr = new Gastos(project,developer2);
+                pr.setLocationRelativeTo(null);
+                pr.setVisible(true);
+                dispose();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un gasto");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +270,11 @@ public class Gastos extends javax.swing.JFrame {
     private javax.swing.JButton accGastos;
     private javax.swing.JButton canGastos;
     private javax.swing.JLabel gastosTotal;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaDeGastos;
     private javax.swing.JLabel totalGastos;
     // End of variables declaration//GEN-END:variables
 }

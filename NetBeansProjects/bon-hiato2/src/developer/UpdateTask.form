@@ -25,42 +25,51 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="taskNameLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="stateLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="durationUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="durationLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="priorityLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="rulesStateUpdateTask" alignment="0" max="32767" attributes="0"/>
-                              <Component id="priorityUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="taskNameLab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="stateLab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="durationUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="durationLab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="priorityLab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="priorityUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="idLab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="stateUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="descriptionLab" min="-2" max="-2" attributes="0"/>
+                                  <Component id="scroll" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="idLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="descriptionLab" min="-2" max="-2" attributes="0"/>
-                          <Component id="scroll" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="taskNameUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="accUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="logHoursLab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="logHoursUpdate" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                              <Component id="canUpdate" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="taskLab" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="stateUpdate" alignment="0" max="32767" attributes="0"/>
-                          <Component id="taskNameUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="accUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="logHoursLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="logHoursUpdate" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Component id="canUpdate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="title" min="-2" pref="343" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="taskLab" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -68,19 +77,22 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="title" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="taskLab" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="idLab" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="descriptionLab" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="scroll" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="taskNameLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="durationLab" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="durationLab" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -88,9 +100,9 @@
                           <Component id="durationUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="priorityLab" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="logHoursLab" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="logHoursLab" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -98,21 +110,17 @@
                           <Component id="logHoursUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="stateLab" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rulesStateUpdateTask" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="stateLab" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="stateUpdate" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="scroll" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="accUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="canUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -163,8 +171,6 @@
         <Property name="text" type="java.lang.String" value="Estado (0-3)"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="stateUpdate">
-    </Component>
     <Component class="javax.swing.JTextField" name="logHoursUpdate">
     </Component>
     <Component class="javax.swing.JButton" name="accUpdate">
@@ -193,11 +199,6 @@
         <Property name="text" type="java.lang.String" value="Id de la tarea"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="rulesStateUpdateTask">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Rules"/>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="scroll">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -207,11 +208,27 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="descriptionUpdate">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JComboBox" name="stateUpdate">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="title">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

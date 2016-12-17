@@ -42,6 +42,7 @@ public class CreateSprint extends javax.swing.JFrame {
         initComponents();
         proj=project;
         developer2=dev;
+        jLabel1.setText("<Html>"+proj+"/CrearSprint</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
@@ -69,6 +70,7 @@ public class CreateSprint extends javax.swing.JFrame {
         canCreateSprint = new javax.swing.JButton();
         nameCreateSprint = new javax.swing.JTextField();
         fechaIniCreateSprint = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -93,6 +95,8 @@ public class CreateSprint extends javax.swing.JFrame {
 
         fechaIniCreateSprint.setDateFormatString("yyyy-MM-dd");
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,14 +116,17 @@ public class CreateSprint extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nameCreateSprint, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                            .addComponent(fechaIniCreateSprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(163, Short.MAX_VALUE))
+                            .addComponent(nameCreateSprint)
+                            .addComponent(fechaIniCreateSprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(13, 13, 13)
                 .addComponent(createSprintName)
                 .addGap(5, 5, 5)
                 .addComponent(nameCreateSprint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,6 +163,7 @@ public class CreateSprint extends javax.swing.JFrame {
                 preparedStmt.setString(6, proj);
                 // execute the preparedstatement
                 preparedStmt.execute();
+                JOptionPane.showMessageDialog(null, "se ha creado " + nameCreateSprint.getText()+ " con éxito");
 
             }catch(SQLException | HeadlessException e){
                 JOptionPane.showMessageDialog(null, e);
@@ -216,6 +224,7 @@ public class CreateSprint extends javax.swing.JFrame {
     private javax.swing.JLabel createSprintFechaIni;
     private javax.swing.JLabel createSprintName;
     private com.toedter.calendar.JDateChooser fechaIniCreateSprint;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nameCreateSprint;
     // End of variables declaration//GEN-END:variables
 }

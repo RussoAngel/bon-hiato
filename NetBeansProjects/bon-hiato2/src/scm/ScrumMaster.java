@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /*
@@ -28,20 +30,37 @@ public class ScrumMaster extends javax.swing.JFrame {
     BD bd = new BD();
     Connection connection = bd.conexion();
     private String develop;
+    private List<String> lista;
+    private List<String> listaFinal;
     public ScrumMaster() {
         initComponents();
     }
     public ScrumMaster(String developer){
         initComponents();
+        lista = new ArrayList<>();
+        listaFinal = new ArrayList<>();
         develop=developer;
+        
+        jLabel1.setText("<Html>Logueado como: <br>"+develop+"</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from projects");
             while(rs.next()){
-                selectorScrumMaster.add(rs.getString("name"));
+                lista.add(rs.getString("name"));
             }
         }catch(SQLException e){
             System.out.println("no se pudo acceder");
+        }
+        for (String project : lista) {
+            Task task = new Task(project,develop);
+            if(task.estaVacio()){
+                listaFinal.add(project + "-");
+            }else{
+                listaFinal.add(project + "*");
+            }
+        }
+        for (String project : listaFinal) {
+            selectorScrumMaster.add(project);
         }
     }
 
@@ -59,6 +78,9 @@ public class ScrumMaster extends javax.swing.JFrame {
         selectorScrumMaster = new java.awt.Choice();
         scrumMasterProjects = new javax.swing.JLabel();
         logoutScrumMaster = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
@@ -86,6 +108,12 @@ public class ScrumMaster extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("* Tienes tareas");
+
+        jLabel3.setText("- No tienes tareas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,7 +121,9 @@ public class ScrumMaster extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(logoutScrumMaster))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,18 +134,22 @@ public class ScrumMaster extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(79, 79, 79)
                                 .addComponent(selectorScrumMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(gestionScrumMaster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(workScrumMaster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(workScrumMaster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(logoutScrumMaster)
-                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoutScrumMaster)
+                    .addComponent(jLabel1))
+                .addGap(59, 59, 59)
                 .addComponent(scrumMasterProjects)
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -123,7 +157,11 @@ public class ScrumMaster extends javax.swing.JFrame {
                     .addComponent(gestionScrumMaster))
                 .addGap(11, 11, 11)
                 .addComponent(workScrumMaster)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,11 +170,12 @@ public class ScrumMaster extends javax.swing.JFrame {
     private void workScrumMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workScrumMasterActionPerformed
         // TODO add your handling code here:
         String choice=selectorScrumMaster.getSelectedItem();
-        Task task = new Task(choice,develop); 
+        String choice2=choice.substring(0,choice.length()-1);
+        Task task = new Task(choice2,develop); 
         if(task.estaVacio()){
             JOptionPane.showMessageDialog(null,"No tienes tareas asignadas en este proyecto");
         }else{
-            task.tittle(choice);
+            task.tittle(choice2);
             task.setLocationRelativeTo(null);
             task.setVisible(true);
             dispose();
@@ -145,7 +184,9 @@ public class ScrumMaster extends javax.swing.JFrame {
 
     private void gestionScrumMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionScrumMasterActionPerformed
         // TODO add your handling code here:
-        Gestion gestion = new Gestion(selectorScrumMaster.getSelectedItem(),develop);
+        String choice=selectorScrumMaster.getSelectedItem();
+        String choice2=choice.substring(0,choice.length()-1);
+        Gestion gestion = new Gestion(choice2,develop);
         gestion.setLocationRelativeTo(null);
         gestion.setVisible(true);
         dispose();
@@ -196,6 +237,9 @@ public class ScrumMaster extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton gestionScrumMaster;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton logoutScrumMaster;
     private javax.swing.JLabel scrumMasterProjects;
     private java.awt.Choice selectorScrumMaster;
