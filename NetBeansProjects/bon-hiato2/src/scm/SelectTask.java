@@ -6,6 +6,7 @@
 package scm;
 
 import bon.BD;
+import bon.Login;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -175,19 +176,23 @@ public class SelectTask extends javax.swing.JFrame {
 
     private void remSelecTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remSelecTaskActionPerformed
         // TODO add your handling code here:
-        try{
-            String query = " DELETE FROM task WHERE name = ?";
-            
-        PreparedStatement preparedStmt = connection.prepareStatement(query);
-        preparedStmt.setString(1, tasksListSelecTask.getSelectedValue());
-        preparedStmt.execute();
-        }catch(SQLException | HeadlessException e){
-            JOptionPane.showMessageDialog(null, e);
+                int dialogButton = 
+        JOptionPane.showConfirmDialog (null, "¿Desea eliminar la tarea actual?","Aviso!", JOptionPane.YES_NO_OPTION);
+        if (dialogButton == JOptionPane.YES_OPTION){
+            try {
+                String query = " DELETE FROM task WHERE name = ?";
+
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setString(1, tasksListSelecTask.getSelectedValue());
+                preparedStmt.execute();
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            SelectTask select = new SelectTask(proy, developer2);
+            select.setLocationRelativeTo(null);
+            select.setVisible(true);
+            dispose();
         }
-        SelectTask select = new SelectTask(proy,developer2);
-        select.setLocationRelativeTo(null);
-        select.setVisible(true);
-        dispose();
     }//GEN-LAST:event_remSelecTaskActionPerformed
 
     /**

@@ -15,7 +15,6 @@ import java.util.List;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author yonay
@@ -28,42 +27,41 @@ public class Developer extends javax.swing.JFrame {
     BD bd = new BD();
     Connection connection = bd.conexion();
     private String develop;
-    private List<String> projects= new ArrayList<String>();
+    private List<String> projects = new ArrayList<String>();
+
     public Developer() {
         initComponents();
     }
-    
-    public Developer(String deve){
+
+    public Developer(String deve) {
         initComponents();
-        this.develop=deve;
-        jLabel1.setText("<Html>Logueado como: <br>"+develop+"</Html>");
-        try{
+        this.develop = deve;
+        jLabel1.setText("<Html>Logueado como: <br>" + develop + "</Html>");
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from projects");
-            while(rs.next()){
+            while (rs.next()) {
                 projects.add(rs.getString("name"));
-                
+
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
-        try{
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
-            while(rs.next()){
+            while (rs.next()) {
                 for (String project : projects) {
-                    if(rs.getString("Projects").equals(project) && rs.getString("develop").equals(develop)){
+                    if (rs.getString("Projects").equals(project) && rs.getString("develop").equals(develop)) {
                         projectSelectorDeveloper.add(rs.getString("Projects"));
                     }
                 }
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
-        
+
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,26 +112,30 @@ public class Developer extends javax.swing.JFrame {
 
     private void selectedDeveloperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectedDeveloperActionPerformed
         // TODO add your handling code here:
-        String choice=projectSelectorDeveloper.getSelectedItem();
-        Task task = new Task(choice,develop);
+        String choice = projectSelectorDeveloper.getSelectedItem();
+        Task task = new Task(choice, develop);
 
-        if(task.estaVacio()){
-            JOptionPane.showMessageDialog(null,"No tienes tareas asignadas en este proyecto");
-        }else{
+        if (task.estaVacio()) {
+            JOptionPane.showMessageDialog(null, "No tienes tareas asignadas en este proyecto");
+        } else {
             task.tittle(choice);
             task.setLocationRelativeTo(null);
             task.setVisible(true);
             dispose();
         }
-        
+
     }//GEN-LAST:event_selectedDeveloperActionPerformed
 
     private void logoutDeveloperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutDeveloperActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
-        dispose();
+        int dialogButton
+                = JOptionPane.showConfirmDialog(null, "¿Desea salir de la cuenta actual?", "Aviso!", JOptionPane.YES_NO_OPTION);
+        if (dialogButton == JOptionPane.YES_OPTION) {
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_logoutDeveloperActionPerformed
 
     /**

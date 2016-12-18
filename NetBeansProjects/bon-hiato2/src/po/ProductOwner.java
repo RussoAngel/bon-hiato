@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author yonay
@@ -29,20 +28,22 @@ public class ProductOwner extends javax.swing.JFrame {
     BD bd = new BD();
     Connection connection = bd.conexion();
     private String develop;
+
     public ProductOwner() {
         initComponents();
     }
-    public ProductOwner(String deve){
+
+    public ProductOwner(String deve) {
         initComponents();
-        develop=deve;
-        jLabel1.setText("<Html>Logueado como: <br>"+develop+"</Html>");
-        try{
+        develop = deve;
+        jLabel1.setText("<Html>Logueado como: <br>" + develop + "</Html>");
+        try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from projects");
-            while(rs.next()){
+            while (rs.next()) {
                 projectProductOwner.add(rs.getString("name"));
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("no se pudo acceder");
         }
     }
@@ -146,8 +147,8 @@ public class ProductOwner extends javax.swing.JFrame {
 
     private void selectProductOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProductOwnerActionPerformed
         // TODO add your handling code here:
-        String choice=projectProductOwner.getSelectedItem();
-        ProductBacklog productBacklog = new ProductBacklog(choice,develop); 
+        String choice = projectProductOwner.getSelectedItem();
+        ProductBacklog productBacklog = new ProductBacklog(choice, develop);
         productBacklog.setLocationRelativeTo(null);
         productBacklog.setVisible(true);
         dispose();
@@ -163,23 +164,27 @@ public class ProductOwner extends javax.swing.JFrame {
 
     private void logoutProductOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutProductOwnerActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
-        dispose();
+        int dialogButton
+                = JOptionPane.showConfirmDialog(null, "¿Desea salir de la cuenta actual?", "Aviso!", JOptionPane.YES_NO_OPTION);
+        if (dialogButton == JOptionPane.YES_OPTION) {
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_logoutProductOwnerActionPerformed
 
     private void remProductOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remProductOwnerActionPerformed
         // TODO add your handling code here:
-        int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar esta tarea?");
-        if(respuesta==0){
-            try{
+        int respuesta = JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar esta tarea?");
+        if (respuesta == 0) {
+            try {
                 String query = " DELETE FROM projects WHERE name = ?";
 
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setString(1, projectProductOwner.getSelectedItem());
                 preparedStmt.execute();
-            }catch(SQLException | HeadlessException e){
+            } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
             ProductOwner productOwner = new ProductOwner(develop);

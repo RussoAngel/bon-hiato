@@ -198,14 +198,12 @@ public class ScrumMaster extends javax.swing.JFrame {
     private void logoutScrumMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutScrumMasterActionPerformed
         // TODO add your handling code here:
         int dialogButton = 
-        JOptionPane.showConfirmDialog (null, "¿Desea salir de la cuenta actual?","Warning", JOptionPane.YES_NO_OPTION);
+        JOptionPane.showConfirmDialog (null, "¿Desea salir de la cuenta actual?","Aviso!", JOptionPane.YES_NO_OPTION);
         if (dialogButton == JOptionPane.YES_OPTION){
             Login login = new Login();
             login.setLocationRelativeTo(null);
             login.setVisible(true);
             dispose();
-        }else{
-            
         }
     }//GEN-LAST:event_logoutScrumMasterActionPerformed
 
