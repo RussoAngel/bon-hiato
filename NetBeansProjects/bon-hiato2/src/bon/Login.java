@@ -103,7 +103,8 @@ public class Login extends javax.swing.JFrame {
         loginTitle.setText("Login");
         getContentPane().add(loginTitle);
 
-        personalLogin.setLabel("...");
+        personalLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bon/rsz_user_male2-512.png"))); // NOI18N
+        personalLogin.setText("");
         personalLogin.setPreferredSize(new java.awt.Dimension(5, 3));
         personalLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
