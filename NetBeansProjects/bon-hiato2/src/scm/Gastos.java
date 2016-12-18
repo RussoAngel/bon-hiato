@@ -98,11 +98,12 @@ public class Gastos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaDeGastos = new javax.swing.JList<String>();
+        listaDeGastos = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         gastosTotal.setText("Gastos Totales");
 

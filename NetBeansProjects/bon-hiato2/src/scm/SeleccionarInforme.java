@@ -69,7 +69,7 @@ public class SeleccionarInforme extends javax.swing.JFrame {
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
-        informesListSelecInforme = new javax.swing.JList<String>();
+        informesListSelecInforme = new javax.swing.JList<>();
         selecInformesLab = new javax.swing.JLabel();
         accSelecInformes = new javax.swing.JButton();
         canSelecInformes = new javax.swing.JButton();
@@ -77,6 +77,8 @@ public class SeleccionarInforme extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(300, 300));
+        setResizable(false);
 
         scroll.setViewportView(informesListSelecInforme);
 

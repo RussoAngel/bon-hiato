@@ -94,6 +94,7 @@ public class EstimarTarea extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         estimarTareaName.setText("Nombre de la tarea");
 

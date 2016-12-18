@@ -72,6 +72,7 @@ public class RiskInform extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
         riskInformTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N

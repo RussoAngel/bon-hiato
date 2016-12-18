@@ -44,6 +44,8 @@ public class RealizarStimacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(300, 300));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N

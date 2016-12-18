@@ -84,6 +84,7 @@ public class VisualizarContingencia extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         visualizarContingenciaProbabilidad.setText("Probabilidad (%)");
 

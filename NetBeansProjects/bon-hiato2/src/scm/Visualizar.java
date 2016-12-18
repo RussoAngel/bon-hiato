@@ -175,13 +175,14 @@ public class Visualizar extends javax.swing.JFrame {
         canVisualizar = new javax.swing.JButton();
         sprintNameVisualizar = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        taskListVisualizar = new javax.swing.JList<String>();
+        taskListVisualizar = new javax.swing.JList<>();
         remTaskVisualizar = new javax.swing.JButton();
 
         jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         visualizarFechaIni.setText("Fecha de inicio");
 

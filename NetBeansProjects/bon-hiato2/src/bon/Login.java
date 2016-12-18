@@ -97,6 +97,8 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(400, 300));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 2));
 
         loginTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -104,7 +106,6 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(loginTitle);
 
         personalLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bon/rsz_user_male2-512.png"))); // NOI18N
-        personalLogin.setText("");
         personalLogin.setPreferredSize(new java.awt.Dimension(5, 3));
         personalLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

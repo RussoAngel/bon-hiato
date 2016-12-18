@@ -24,7 +24,7 @@ public class Gestion extends javax.swing.JFrame {
         initComponents();
         proj=project;
         develop=dev;
-        jLabel1.setText("<Html>"+proj +"/Gestión</Html>");
+        jLabel1.setText("<Html>"+proj.split("-")[0] +"/Gestión</Html>");
     }
 
     /**
@@ -49,6 +49,8 @@ public class Gestion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(400, 300));
+        setResizable(false);
 
         addTaskGestion.setText("Crear Tarea");
         addTaskGestion.addActionListener(new java.awt.event.ActionListener() {

@@ -94,11 +94,12 @@ public class UpdateTask extends javax.swing.JFrame {
         idLab = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         descriptionUpdate = new javax.swing.JTextArea();
-        stateUpdate = new javax.swing.JComboBox<String>();
+        stateUpdate = new javax.swing.JComboBox<>();
         title = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         taskNameLab.setText("Nombre de la tarea");
 

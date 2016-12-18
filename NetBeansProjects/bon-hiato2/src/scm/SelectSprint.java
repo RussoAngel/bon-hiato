@@ -76,12 +76,14 @@ public class SelectSprint extends javax.swing.JFrame {
         viewSelecSprint = new javax.swing.JButton();
         canSelecSprint = new javax.swing.JButton();
         scroll = new javax.swing.JScrollPane();
-        sprintsListSelecSprint = new javax.swing.JList<String>();
+        sprintsListSelecSprint = new javax.swing.JList<>();
         addTaskSelecSprint = new javax.swing.JButton();
         remSelecSprint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(300, 300));
+        setResizable(false);
 
         selecSprintLab.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         selecSprintLab.setText("Project-Sprints");

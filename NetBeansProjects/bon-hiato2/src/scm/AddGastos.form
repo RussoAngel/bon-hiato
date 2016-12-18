@@ -4,6 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Bon-Hiato"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -25,36 +26,29 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="accAddGastos" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="canAddGastos" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="addGastosName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addGastosUnidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="unidadAddGastos" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Component id="addGastosPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="precioAddGastos" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Component id="nameAddGastos" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="addGastosDescription" min="-2" max="-2" attributes="0"/>
-                                  <Component id="scroll" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
+                      <Component id="accAddGastos" min="-2" pref="75" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="canAddGastos" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="174" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="addGastosName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="addGastosUnidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="unidadAddGastos" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                          <Component id="addGastosPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="precioAddGastos" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                          <Component id="nameAddGastos" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="addGastosDescription" min="-2" max="-2" attributes="0"/>
+                          <Component id="scroll" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>

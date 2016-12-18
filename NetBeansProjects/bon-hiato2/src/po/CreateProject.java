@@ -56,6 +56,7 @@ public class CreateProject extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         createProjectName.setText("Nombre del Proyecto");
 

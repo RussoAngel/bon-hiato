@@ -78,6 +78,7 @@ public class AddResource extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         addResourceName.setText("Nombre del recurso");
 

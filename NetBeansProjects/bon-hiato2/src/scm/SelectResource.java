@@ -74,7 +74,7 @@ public class SelectResource extends javax.swing.JFrame {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         scroll = new javax.swing.JScrollPane();
-        resourcesListSelecResources = new javax.swing.JList<String>();
+        resourcesListSelecResources = new javax.swing.JList<>();
         selecResourcesLab = new javax.swing.JLabel();
         addSelecResources = new javax.swing.JButton();
         remSelecResources = new javax.swing.JButton();
@@ -85,6 +85,8 @@ public class SelectResource extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(300, 300));
+        setResizable(false);
 
         scroll.setViewportView(resourcesListSelecResources);
 

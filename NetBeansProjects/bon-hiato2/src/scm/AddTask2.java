@@ -91,13 +91,15 @@ public class AddTask2 extends javax.swing.JFrame {
         accAddTask2 = new javax.swing.JButton();
         addTask2Hours = new javax.swing.JLabel();
         hoursAddTask2 = new javax.swing.JTextField();
-        state = new javax.swing.JComboBox<String>();
-        priority = new javax.swing.JComboBox<String>();
-        Developer = new javax.swing.JComboBox<String>();
+        state = new javax.swing.JComboBox<>();
+        priority = new javax.swing.JComboBox<>();
+        Developer = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(500, 400));
+        setResizable(false);
 
         addTask2Name.setText("Nombre de la Tarea");
 

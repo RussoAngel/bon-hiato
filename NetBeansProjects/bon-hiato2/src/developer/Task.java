@@ -94,7 +94,7 @@ public class Task extends javax.swing.JFrame {
         tasksTitle = new javax.swing.JLabel();
         tasksTasks = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        listTasks = new javax.swing.JList<String>();
+        listTasks = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         modTasks = new javax.swing.JButton();
         canTasks = new javax.swing.JButton();
@@ -104,6 +104,7 @@ public class Task extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
         tasksTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N

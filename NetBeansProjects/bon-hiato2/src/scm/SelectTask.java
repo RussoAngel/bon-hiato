@@ -72,13 +72,15 @@ public class SelectTask extends javax.swing.JFrame {
 
         titleSelecTask = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        tasksListSelecTask = new javax.swing.JList<String>();
+        tasksListSelecTask = new javax.swing.JList<>();
         updateSelecTask = new javax.swing.JButton();
         canSelecTask = new javax.swing.JButton();
         remSelecTask = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(300, 300));
+        setResizable(false);
 
         titleSelecTask.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         titleSelecTask.setText("Proyecto Actual");

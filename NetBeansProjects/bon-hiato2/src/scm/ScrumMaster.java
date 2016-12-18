@@ -84,6 +84,8 @@ public class ScrumMaster extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(400, 400));
+        setResizable(false);
 
         gestionScrumMaster.setText("Gestion");
         gestionScrumMaster.addActionListener(new java.awt.event.ActionListener() {
@@ -195,10 +197,16 @@ public class ScrumMaster extends javax.swing.JFrame {
 
     private void logoutScrumMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutScrumMasterActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
-        dispose();
+        int dialogButton = 
+        JOptionPane.showConfirmDialog (null, "¿Desea salir de la cuenta actual?","Warning", JOptionPane.YES_NO_OPTION);
+        if (dialogButton == JOptionPane.YES_OPTION){
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);
+            dispose();
+        }else{
+            
+        }
     }//GEN-LAST:event_logoutScrumMasterActionPerformed
 
     /**

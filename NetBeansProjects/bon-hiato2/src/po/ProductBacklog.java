@@ -74,7 +74,7 @@ public class ProductBacklog extends javax.swing.JFrame {
         productBacklogProject = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
-        tasksProductBacklog = new javax.swing.JList<String>();
+        tasksProductBacklog = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         addProductBacklog = new javax.swing.JButton();
         modProductBacklog = new javax.swing.JButton();
@@ -84,13 +84,14 @@ public class ProductBacklog extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
         productBacklogProject.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         productBacklogProject.setText("Proyecto Actual");
         getContentPane().add(productBacklogProject);
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         scroll.setViewportView(tasksProductBacklog);
 

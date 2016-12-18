@@ -82,6 +82,8 @@ public class Developer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(400, 300));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 2));
 
         developerTitle.setText("Bon Hiato-Project Selection");

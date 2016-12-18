@@ -73,10 +73,11 @@ public class AddTask extends javax.swing.JFrame {
         accAddTask = new javax.swing.JButton();
         canAddTask = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setResizable(false);
 
         addTaskName.setText("Nombre de la Tarea");
 
