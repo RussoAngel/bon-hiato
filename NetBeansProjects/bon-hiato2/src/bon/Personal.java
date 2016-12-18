@@ -55,16 +55,28 @@ public class Personal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
-        personalListPersonal = new javax.swing.JList<>();
+        personalListPersonal = new javax.swing.JList<String>();
+        jPanel1 = new javax.swing.JPanel();
         accPersonal = new javax.swing.JButton();
         canPersonal = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        getContentPane().setLayout(new java.awt.GridLayout(0, 1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Miembros del equipo");
+        getContentPane().add(jLabel1);
 
         scroll.setViewportView(personalListPersonal);
+
+        getContentPane().add(scroll);
+
+        jPanel1.setMinimumSize(new java.awt.Dimension(174, 5));
+        jPanel1.setPreferredSize(new java.awt.Dimension(388, 40));
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0, 0, 15));
 
         accPersonal.setText("Seleccionar");
         accPersonal.addActionListener(new java.awt.event.ActionListener() {
@@ -72,47 +84,18 @@ public class Personal extends javax.swing.JFrame {
                 accPersonalActionPerformed(evt);
             }
         });
+        jPanel1.add(accPersonal);
 
         canPersonal.setText("Cancelar");
+        canPersonal.setPreferredSize(new java.awt.Dimension(75, 12));
         canPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 canPersonalActionPerformed(evt);
             }
         });
+        jPanel1.add(canPersonal);
 
-        jLabel1.setText("Miembros del equipo");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(accPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(canPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(44, 44, 44))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(accPersonal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(canPersonal))
-                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71))
-        );
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,6 +161,7 @@ public class Personal extends javax.swing.JFrame {
     private javax.swing.JButton accPersonal;
     private javax.swing.JButton canPersonal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JList<String> personalListPersonal;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables

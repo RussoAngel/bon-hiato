@@ -72,7 +72,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
-        planesListSelecPlan = new javax.swing.JList<>();
+        planesListSelecPlan = new javax.swing.JList<String>();
         addSelecPlan = new javax.swing.JButton();
         remSelecPlan = new javax.swing.JButton();
         viewSelecPlan = new javax.swing.JButton();
@@ -115,6 +115,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
 
         selecPlanLab.setText("Planes de contingencia");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,11 +123,11 @@ public class SeleccionarPlan extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addContainerGap()
                 .addComponent(selecPlanLab, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -156,10 +157,10 @@ public class SeleccionarPlan extends javax.swing.JFrame {
                         .addComponent(viewSelecPlan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(canSelecPlan)
-                        .addContainerGap(76, Short.MAX_VALUE))
+                        .addContainerGap(61, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(76, 76, 76))))
+                        .addContainerGap())))
         );
 
         pack();

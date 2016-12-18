@@ -82,8 +82,11 @@ public class Developer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        getContentPane().setLayout(new java.awt.GridLayout(0, 2));
 
         developerTitle.setText("Bon Hiato-Project Selection");
+        getContentPane().add(developerTitle);
+        getContentPane().add(projectSelectorDeveloper);
 
         selectedDeveloper.setText("Seleccionar");
         selectedDeveloper.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +94,7 @@ public class Developer extends javax.swing.JFrame {
                 selectedDeveloperActionPerformed(evt);
             }
         });
+        getContentPane().add(selectedDeveloper);
 
         logoutDeveloper.setText("LogOut");
         logoutDeveloper.addActionListener(new java.awt.event.ActionListener() {
@@ -98,48 +102,10 @@ public class Developer extends javax.swing.JFrame {
                 logoutDeveloperActionPerformed(evt);
             }
         });
+        getContentPane().add(logoutDeveloper);
 
         jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(projectSelectorDeveloper, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(developerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(selectedDeveloper)
-                                .addGap(114, 114, 114)))
-                        .addGap(0, 56, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logoutDeveloper)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(logoutDeveloper)
-                    .addComponent(jLabel1))
-                .addGap(39, 39, 39)
-                .addComponent(developerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(projectSelectorDeveloper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(selectedDeveloper)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
+        getContentPane().add(jLabel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

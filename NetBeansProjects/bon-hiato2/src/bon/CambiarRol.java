@@ -73,28 +73,32 @@ public class CambiarRol extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cambiarRolTitle = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         cambiarRolPassToEdit = new javax.swing.JLabel();
         passCambiarRol = new javax.swing.JPasswordField();
-        canCambiarRol = new javax.swing.JButton();
-        cambiarRolTitle = new javax.swing.JLabel();
         despedirCambiarRol = new javax.swing.JButton();
         degradarCambiarRol = new javax.swing.JButton();
         ascenderCambiarRol = new javax.swing.JButton();
+        canCambiarRol = new javax.swing.JButton();
         name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        getContentPane().setLayout(new java.awt.GridLayout(8, 0));
+
+        cambiarRolTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        cambiarRolTitle.setText("Cambiar Rol");
+        getContentPane().add(cambiarRolTitle);
 
         cambiarRolPassToEdit.setText("Contraseña admin");
+        jPanel1.add(cambiarRolPassToEdit);
 
-        canCambiarRol.setText("Cancelar");
-        canCambiarRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                canCambiarRolActionPerformed(evt);
-            }
-        });
+        passCambiarRol.setMinimumSize(new java.awt.Dimension(600, 20));
+        passCambiarRol.setPreferredSize(new java.awt.Dimension(100, 20));
+        jPanel1.add(passCambiarRol);
 
-        cambiarRolTitle.setText("Cambiar Rol");
+        getContentPane().add(jPanel1);
 
         despedirCambiarRol.setText("Despedir");
         despedirCambiarRol.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +106,7 @@ public class CambiarRol extends javax.swing.JFrame {
                 despedirCambiarRolActionPerformed(evt);
             }
         });
+        getContentPane().add(despedirCambiarRol);
 
         degradarCambiarRol.setText("Degradar");
         degradarCambiarRol.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +114,7 @@ public class CambiarRol extends javax.swing.JFrame {
                 degradarCambiarRolActionPerformed(evt);
             }
         });
+        getContentPane().add(degradarCambiarRol);
 
         ascenderCambiarRol.setText("Ascender");
         ascenderCambiarRol.addActionListener(new java.awt.event.ActionListener() {
@@ -116,55 +122,18 @@ public class CambiarRol extends javax.swing.JFrame {
                 ascenderCambiarRolActionPerformed(evt);
             }
         });
+        getContentPane().add(ascenderCambiarRol);
+
+        canCambiarRol.setText("Cancelar");
+        canCambiarRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                canCambiarRolActionPerformed(evt);
+            }
+        });
+        getContentPane().add(canCambiarRol);
 
         name.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(cambiarRolPassToEdit)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(passCambiarRol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(canCambiarRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(despedirCambiarRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(degradarCambiarRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ascenderCambiarRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(cambiarRolTitle)
-                                    .addGap(37, 37, 37)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(125, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cambiarRolTitle)
-                .addGap(16, 16, 16)
-                .addComponent(name)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cambiarRolPassToEdit)
-                    .addComponent(passCambiarRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(ascenderCambiarRol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(degradarCambiarRol)
-                .addGap(12, 12, 12)
-                .addComponent(despedirCambiarRol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(canCambiarRol)
-                .addGap(37, 37, 37))
-        );
+        getContentPane().add(name);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -319,6 +288,7 @@ public class CambiarRol extends javax.swing.JFrame {
     private javax.swing.JButton canCambiarRol;
     private javax.swing.JButton degradarCambiarRol;
     private javax.swing.JButton despedirCambiarRol;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel name;
     private javax.swing.JPasswordField passCambiarRol;
     // End of variables declaration//GEN-END:variables

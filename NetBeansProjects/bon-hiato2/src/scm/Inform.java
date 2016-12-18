@@ -58,16 +58,30 @@ public class Inform extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        canInform = new javax.swing.JButton();
         titleInform = new javax.swing.JLabel();
-        informDeveloper = new javax.swing.JLabel();
-        developerInform = new javax.swing.JLabel();
         informDescription = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         description = new javax.swing.JTextArea();
+        canInform = new javax.swing.JButton();
+        developerInform = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        getContentPane().setLayout(new java.awt.GridLayout(0, 1));
+
+        titleInform.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        titleInform.setText("jLabel1");
+        getContentPane().add(titleInform);
+
+        informDescription.setText("Descripción");
+        getContentPane().add(informDescription);
+
+        description.setEditable(false);
+        description.setColumns(20);
+        description.setRows(5);
+        jScrollPane1.setViewportView(description);
+
+        getContentPane().add(jScrollPane1);
 
         canInform.setText("Cancelar");
         canInform.addActionListener(new java.awt.event.ActionListener() {
@@ -75,65 +89,10 @@ public class Inform extends javax.swing.JFrame {
                 canInformActionPerformed(evt);
             }
         });
-
-        titleInform.setText("jLabel1");
-
-        informDeveloper.setText("Desarrollador");
+        getContentPane().add(canInform);
 
         developerInform.setText("jLabel4");
-
-        informDescription.setText("Descripción");
-
-        description.setEditable(false);
-        description.setColumns(20);
-        description.setRows(5);
-        jScrollPane1.setViewportView(description);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(informDeveloper)
-                    .addComponent(developerInform))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(informDescription)
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titleInform)
-                    .addComponent(canInform))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(titleInform)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(informDeveloper)
-                    .addComponent(informDescription))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(developerInform)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(canInform)
-                .addGap(47, 47, 47))
-        );
+        getContentPane().add(developerInform);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,7 +145,6 @@ public class Inform extends javax.swing.JFrame {
     private javax.swing.JTextArea description;
     private javax.swing.JLabel developerInform;
     private javax.swing.JLabel informDescription;
-    private javax.swing.JLabel informDeveloper;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel titleInform;
     // End of variables declaration//GEN-END:variables

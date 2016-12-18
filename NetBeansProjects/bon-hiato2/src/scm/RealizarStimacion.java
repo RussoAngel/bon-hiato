@@ -36,14 +36,19 @@ public class RealizarStimacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         tasksRealizarEstimar = new javax.swing.JButton();
         gastosRealizarEstimar = new javax.swing.JButton();
         ingresosRealizarEstimar = new javax.swing.JButton();
         canRealizarEstimar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        getContentPane().setLayout(new java.awt.GridLayout(0, 1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
 
         tasksRealizarEstimar.setText("Estimar duracion tareas");
         tasksRealizarEstimar.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +56,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
                 tasksRealizarEstimarActionPerformed(evt);
             }
         });
+        getContentPane().add(tasksRealizarEstimar);
 
         gastosRealizarEstimar.setText("Estimar gastos");
         gastosRealizarEstimar.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +64,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
                 gastosRealizarEstimarActionPerformed(evt);
             }
         });
+        getContentPane().add(gastosRealizarEstimar);
 
         ingresosRealizarEstimar.setText("Estimar ingresos");
         ingresosRealizarEstimar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +72,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
                 ingresosRealizarEstimarActionPerformed(evt);
             }
         });
+        getContentPane().add(ingresosRealizarEstimar);
 
         canRealizarEstimar.setText("Cancelar");
         canRealizarEstimar.addActionListener(new java.awt.event.ActionListener() {
@@ -72,38 +80,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
                 canRealizarEstimarActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(117, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(canRealizarEstimar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ingresosRealizarEstimar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gastosRealizarEstimar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tasksRealizarEstimar)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1)
-                .addGap(35, 35, 35)
-                .addComponent(tasksRealizarEstimar)
-                .addGap(18, 18, 18)
-                .addComponent(gastosRealizarEstimar)
-                .addGap(18, 18, 18)
-                .addComponent(ingresosRealizarEstimar)
-                .addGap(18, 18, 18)
-                .addComponent(canRealizarEstimar)
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
+        getContentPane().add(canRealizarEstimar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

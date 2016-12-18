@@ -87,22 +87,38 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         loginTitle = new javax.swing.JLabel();
-        loginUser = new javax.swing.JLabel();
-        loginPass = new javax.swing.JLabel();
-        userLogin = new javax.swing.JTextField();
-        accLogin = new javax.swing.JButton();
-        passLogin = new javax.swing.JPasswordField();
-        registerLogin = new javax.swing.JButton();
         personalLogin = new javax.swing.JButton();
+        loginUser = new javax.swing.JLabel();
+        userLogin = new javax.swing.JTextField();
+        loginPass = new javax.swing.JLabel();
+        passLogin = new javax.swing.JPasswordField();
+        accLogin = new javax.swing.JButton();
+        registerLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        getContentPane().setLayout(new java.awt.GridLayout(0, 2));
 
+        loginTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         loginTitle.setText("Login");
+        getContentPane().add(loginTitle);
+
+        personalLogin.setLabel("...");
+        personalLogin.setPreferredSize(new java.awt.Dimension(5, 3));
+        personalLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                personalLoginActionPerformed(evt);
+            }
+        });
+        getContentPane().add(personalLogin);
 
         loginUser.setText("Usuario");
+        getContentPane().add(loginUser);
+        getContentPane().add(userLogin);
 
         loginPass.setText("Contraseña");
+        getContentPane().add(loginPass);
+        getContentPane().add(passLogin);
 
         accLogin.setText("Aceptar");
         accLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +126,7 @@ public class Login extends javax.swing.JFrame {
                 accLoginActionPerformed(evt);
             }
         });
+        getContentPane().add(accLogin);
 
         registerLogin.setText("Registrarse");
         registerLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -117,58 +134,7 @@ public class Login extends javax.swing.JFrame {
                 registerLoginActionPerformed(evt);
             }
         });
-
-        personalLogin.setText("Personal");
-        personalLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                personalLoginActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(loginPass)
-                            .addComponent(loginUser))
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                            .addComponent(userLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                            .addComponent(accLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(registerLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(personalLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(loginTitle)))
-                .addGap(107, 107, 107))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(loginTitle)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginUser)
-                    .addComponent(userLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginPass)
-                    .addComponent(passLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(accLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(personalLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(registerLogin);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

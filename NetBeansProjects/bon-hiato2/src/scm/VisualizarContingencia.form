@@ -24,65 +24,58 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="199" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="nameVisualizarContingencia" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="prevencionVisualizarContingencia" min="-2" max="-2" attributes="0"/>
+                          <Component id="visualizarContingenciaPrevencion" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="visualizarContingenciaName" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="canVisualizarContingencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="probabilidadVisualizarContingencia" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="nameVisualizarContingencia" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="prevencionVisualizarContingencia" min="-2" max="-2" attributes="0"/>
-                                  <Component id="visualizarContingenciaPrevencion" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="visualizarContingenciaName" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="canVisualizarContingencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="probabilidadVisualizarContingencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="exposicionVisualizarContingencia" min="-2" max="-2" attributes="0"/>
-                                          <Component id="visualizarContingenciaExposicion" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="visualizarContingenciaPerdida" min="-2" max="-2" attributes="0"/>
-                                  <Component id="perdidaVisualizarContingencia" min="-2" max="-2" attributes="0"/>
-                                  <Component id="visualizarContingenciaProbabilidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="visualizarContingenciaDescription" min="-2" max="-2" attributes="0"/>
-                                  <Component id="medidaVisualizarContingencia" min="-2" max="-2" attributes="0"/>
-                                  <Component id="visualizarContingenciaMedida" min="-2" max="-2" attributes="0"/>
+                                  <Component id="exposicionVisualizarContingencia" min="-2" max="-2" attributes="0"/>
+                                  <Component id="visualizarContingenciaExposicion" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="199" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="visualizarContingenciaPerdida" min="-2" max="-2" attributes="0"/>
+                          <Component id="perdidaVisualizarContingencia" min="-2" max="-2" attributes="0"/>
+                          <Component id="visualizarContingenciaProbabilidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="visualizarContingenciaDescription" min="-2" max="-2" attributes="0"/>
+                          <Component id="medidaVisualizarContingencia" min="-2" max="-2" attributes="0"/>
+                          <Component id="visualizarContingenciaMedida" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="visualizarContingenciaPrevencion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="visualizarContingenciaName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -123,7 +116,7 @@
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -220,6 +213,9 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="24" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>

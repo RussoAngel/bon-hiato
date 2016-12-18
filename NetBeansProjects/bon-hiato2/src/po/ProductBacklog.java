@@ -69,21 +69,34 @@ public class ProductBacklog extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         productBacklogProject = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
         tasksProductBacklog = new javax.swing.JList<String>();
+        jPanel2 = new javax.swing.JPanel();
         addProductBacklog = new javax.swing.JButton();
         modProductBacklog = new javax.swing.JButton();
         remProductBacklog = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         canProductBacklog = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
+        productBacklogProject.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         productBacklogProject.setText("Proyecto Actual");
+        getContentPane().add(productBacklogProject);
+
+        jPanel1.setLayout(new java.awt.GridLayout());
 
         scroll.setViewportView(tasksProductBacklog);
+
+        jPanel1.add(scroll);
+
+        jPanel2.setLayout(new java.awt.GridLayout(0, 1));
 
         addProductBacklog.setText("Añadir Tarea");
         addProductBacklog.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +104,7 @@ public class ProductBacklog extends javax.swing.JFrame {
                 addProductBacklogActionPerformed(evt);
             }
         });
+        jPanel2.add(addProductBacklog);
 
         modProductBacklog.setText("Modificar Tarea");
         modProductBacklog.addActionListener(new java.awt.event.ActionListener() {
@@ -98,6 +112,7 @@ public class ProductBacklog extends javax.swing.JFrame {
                 modProductBacklogActionPerformed(evt);
             }
         });
+        jPanel2.add(modProductBacklog);
 
         remProductBacklog.setText("Eliminar Tarea");
         remProductBacklog.addActionListener(new java.awt.event.ActionListener() {
@@ -105,54 +120,31 @@ public class ProductBacklog extends javax.swing.JFrame {
                 remProductBacklogActionPerformed(evt);
             }
         });
+        jPanel2.add(remProductBacklog);
+
+        jPanel1.add(jPanel2);
+
+        getContentPane().add(jPanel1);
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
         canProductBacklog.setText("Cancelar");
+        canProductBacklog.setPreferredSize(new java.awt.Dimension(60, 10));
         canProductBacklog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 canProductBacklogActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 394;
+        gridBagConstraints.ipady = 77;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 0, 17, 0);
+        jPanel3.add(canProductBacklog, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(remProductBacklog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addProductBacklog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(modProductBacklog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(productBacklogProject))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(canProductBacklog)))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(productBacklogProject)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(addProductBacklog)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(modProductBacklog)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(remProductBacklog))
-                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(canProductBacklog)
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel3);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +241,9 @@ public class ProductBacklog extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addProductBacklog;
     private javax.swing.JButton canProductBacklog;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton modProductBacklog;
     private javax.swing.JLabel productBacklogProject;
     private javax.swing.JButton remProductBacklog;
