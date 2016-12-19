@@ -41,7 +41,7 @@ public class AddResource extends javax.swing.JFrame {
         resource = re;
         developer2 = dev;
         initComponents();
-        jLabel1.setText("<Html>"+project+"/AñadirRecurso</Html>");
+        jLabel1.setText("<Html> Proyecto Actual: "+project+"<br> Ventana Actual: Añadir Recurso</Html>");
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from resource");
@@ -78,6 +78,7 @@ public class AddResource extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(450, 300));
         setResizable(false);
 
         addResourceName.setText("Nombre del recurso");
@@ -110,7 +111,7 @@ public class AddResource extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,6 +121,7 @@ public class AddResource extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nameAddResource, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,8 +138,7 @@ public class AddResource extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(precioAddResource)
                                 .addComponent(unidadAddResource, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(canAddResource)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(canAddResource))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

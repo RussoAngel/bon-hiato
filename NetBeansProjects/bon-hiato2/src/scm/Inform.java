@@ -41,7 +41,7 @@ public class Inform extends javax.swing.JFrame {
                 if((rs.getString("project").equals(project)) && (inform.equals(rs.getString("tittle")))){
                     description.setText(rs.getString("description"));
                     developerInform.setText(rs.getString("develop"));
-                    titleInform.setText("<Html>"+proj+" /Informe /" +rs.getString("tittle") +"</Html>");
+                    titleInform.setText("<Html> Proyecto: "+proj+"<br> Ventana: Informe " +rs.getString("tittle") +"</Html>");
                 }
             }
             }catch(SQLException e){
@@ -71,7 +71,7 @@ public class Inform extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
-        titleInform.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        titleInform.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         titleInform.setText("jLabel1");
         getContentPane().add(titleInform);
 

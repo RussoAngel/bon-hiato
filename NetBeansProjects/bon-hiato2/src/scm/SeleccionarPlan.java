@@ -42,7 +42,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
         initComponents();
         proy= project;
         developer2=dev;
-        jLabel1.setText("<Html>"+proy+"/SeleccionarPlan</Html>");
+        jLabel1.setText("<Html> Proyecto: "+proy+"</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from contingencia");
@@ -117,7 +117,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
 
         selecPlanLab.setText("Planes de contingencia");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,7 +160,7 @@ public class SeleccionarPlan extends javax.swing.JFrame {
                         .addComponent(viewSelecPlan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(canSelecPlan)
-                        .addGap(0, 50, Short.MAX_VALUE))
+                        .addGap(0, 64, Short.MAX_VALUE))
                     .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );

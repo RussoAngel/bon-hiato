@@ -39,7 +39,7 @@ public class Ingreso extends javax.swing.JFrame {
         initComponents();
         develop=dev;
         project=proy;
-        jLabel1.setText("<Html>"+project+"/EstimarIngresos</Html>");
+        jLabel1.setText("<Html> Proyecto: "+project+"<br> Ventana: Estimar Ingresos</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from ingreso");
@@ -92,6 +92,7 @@ public class Ingreso extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(400, 300));
         setResizable(false);
 
         ingresoTotal.setText("Ingresos Totales");
@@ -112,7 +113,7 @@ public class Ingreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         jButton1.setText("Eliminar");

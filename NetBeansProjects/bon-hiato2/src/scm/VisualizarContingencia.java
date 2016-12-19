@@ -33,7 +33,7 @@ public class VisualizarContingencia extends javax.swing.JFrame {
         project=proy;
         developer2=dev;
         initComponents();
-        jLabel1.setText("<Html>"+project+"/VisualizarPlanContingencia</Html>");
+        jLabel1.setText("<Html> Proyecto: "+project+"<br> Ventana: Visualizar Plan De Contingencia</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from contingencia");
@@ -86,7 +86,7 @@ public class VisualizarContingencia extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
-        setPreferredSize(new java.awt.Dimension(800, 400));
+        setPreferredSize(new java.awt.Dimension(800, 450));
         setResizable(false);
 
         visualizarContingenciaProbabilidad.setText("Probabilidad (%)");
@@ -123,7 +123,7 @@ public class VisualizarContingencia extends javax.swing.JFrame {
         descriptionContingencia.setRows(5);
         jScrollPane1.setViewportView(descriptionContingencia);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         prevencionVisualizarContingencia.setEditable(false);
@@ -143,7 +143,6 @@ public class VisualizarContingencia extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(canVisualizarContingencia)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +171,8 @@ public class VisualizarContingencia extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(visualizarContingenciaExposicion)
                                     .addComponent(visualizarContingenciaMedida)
-                                    .addComponent(exposicionVisualizarContingencia))))))
+                                    .addComponent(exposicionVisualizarContingencia)))))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

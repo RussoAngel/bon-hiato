@@ -43,7 +43,7 @@ public class UpdateTask extends javax.swing.JFrame {
         stateUpdate.addItem("1 - desarrollo");
         stateUpdate.addItem("2 - finalizada");
         stateUpdate.addItem("3 - bloqueada");
-        title.setText("<Html>"+projectname+"/UpdateTask</Html>");
+        title.setText("<Html> Proyecto: "+projectname+"<br> Ventana: Actualizar Tarea</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -142,7 +142,7 @@ public class UpdateTask extends javax.swing.JFrame {
         descriptionUpdate.setRows(5);
         scroll.setViewportView(descriptionUpdate);
 
-        title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        title.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         title.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,7 +187,7 @@ public class UpdateTask extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(taskLab)
                     .addComponent(idLab)

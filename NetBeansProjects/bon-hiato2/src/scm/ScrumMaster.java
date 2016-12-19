@@ -41,7 +41,7 @@ public class ScrumMaster extends javax.swing.JFrame {
         listaFinal = new ArrayList<>();
         develop=developer;
         
-        jLabel1.setText("<Html>Logueado como: <br>"+develop+"</Html>");
+        jLabel1.setText("<Html>Logueado como: "+develop+"</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from projects");
@@ -54,9 +54,9 @@ public class ScrumMaster extends javax.swing.JFrame {
         for (String project : lista) {
             Task task = new Task(project,develop);
             if(task.estaVacio()){
-                listaFinal.add(project + "-");
+                listaFinal.add(project + " - No tiene tareas");
             }else{
-                listaFinal.add(project + "*");
+                listaFinal.add(project + " - Tareas asignadas");
             }
         }
         for (String project : listaFinal) {
@@ -84,7 +84,7 @@ public class ScrumMaster extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
-        setPreferredSize(new java.awt.Dimension(400, 400));
+        setPreferredSize(new java.awt.Dimension(400, 350));
         setResizable(false);
 
         gestionScrumMaster.setText("Gestion");
@@ -110,7 +110,7 @@ public class ScrumMaster extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setText("* Tienes tareas");
@@ -172,13 +172,12 @@ public class ScrumMaster extends javax.swing.JFrame {
 
     private void workScrumMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workScrumMasterActionPerformed
         // TODO add your handling code here:
-        String choice=selectorScrumMaster.getSelectedItem();
-        String choice2=choice.substring(0,choice.length()-1);
-        Task task = new Task(choice2,develop); 
+        String choice=selectorScrumMaster.getSelectedItem().split(" - ")[0];
+        Task task = new Task(choice,develop); 
         if(task.estaVacio()){
             JOptionPane.showMessageDialog(null,"No tienes tareas asignadas en este proyecto");
         }else{
-            task.tittle(choice2);
+            task.tittle(choice);
             task.setLocationRelativeTo(null);
             task.setVisible(true);
             dispose();
@@ -187,9 +186,9 @@ public class ScrumMaster extends javax.swing.JFrame {
 
     private void gestionScrumMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionScrumMasterActionPerformed
         // TODO add your handling code here:
-        String choice=selectorScrumMaster.getSelectedItem();
-        String choice2=choice.substring(0,choice.length()-1);
-        Gestion gestion = new Gestion(choice2,develop);
+        String choice=selectorScrumMaster.getSelectedItem().split(" - ")[0];
+        Task task = new Task(choice,develop);
+        Gestion gestion = new Gestion(choice,develop);
         gestion.setLocationRelativeTo(null);
         gestion.setVisible(true);
         dispose();

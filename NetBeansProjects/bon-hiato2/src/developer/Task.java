@@ -39,21 +39,17 @@ public class Task extends javax.swing.JFrame {
         projectName= task;
         developer=develop;
         initComponents();
-        tasksTitle.setText("<Html>"+projectName +"/selectorDeTareas</Html>");
+        tasksTitle.setText("<Html> Proyecto: "+projectName +"<br> Ventana: Tareas</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
             
             while(rs.next()){
-                
-                System.out.println(rs.getString("develop"));
-                System.out.println(developer);
                 if(rs.getString("Projects").equals(projectName) && rs.getString("develop").equals(developer)){
                     tareas.add(rs.getString("name"));
                 }
             }
             for (String tarea : tareas) {
-            System.out.println(tarea);
             }
             String[] mylist = new String[tareas.size()];
             mylist = tareas.toArray(mylist);
@@ -75,7 +71,7 @@ public class Task extends javax.swing.JFrame {
         return false;
     }
     public void tittle(String project){
-        tasksTitle.setText("<Html>"+project +"/selectorDeTareas</Html>");
+        tasksTitle.setText("<Html> Proyecto: "+project +"</Html>");
         
     }
    
@@ -107,10 +103,10 @@ public class Task extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
-        tasksTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        tasksTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tasksTitle.setText("Proyecto Actual");
 
-        tasksTasks.setText("Tareas");
+        tasksTasks.setText("Tareas Asignadas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

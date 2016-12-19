@@ -56,7 +56,7 @@ public class Visualizar extends javax.swing.JFrame {
         project=proj;
         developer=dev;
         sprint = spr;
-        sprintNameVisualizar.setText("<Html>"+project+" /"+sprint+" /VisualizarSprint</Html>");
+        sprintNameVisualizar.setText("<Html> Proyecto: "+project+"<br> Sprint: "+sprint+"</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
@@ -204,7 +204,7 @@ public class Visualizar extends javax.swing.JFrame {
             }
         });
 
-        sprintNameVisualizar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        sprintNameVisualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         sprintNameVisualizar.setText("SprintName");
 
         scroll.setViewportView(taskListVisualizar);

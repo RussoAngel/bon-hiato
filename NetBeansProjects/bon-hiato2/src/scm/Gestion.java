@@ -24,7 +24,7 @@ public class Gestion extends javax.swing.JFrame {
         initComponents();
         proj=project;
         develop=dev;
-        jLabel1.setText("<Html>"+proj.split("-")[0] +"/Gestión</Html>");
+        jLabel1.setText("<Html> Proyecto: "+proj+"<br> Ventana: Gestión</Html>");
     }
 
     /**
@@ -115,7 +115,7 @@ public class Gestion extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

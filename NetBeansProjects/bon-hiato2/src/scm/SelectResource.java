@@ -40,7 +40,7 @@ public class SelectResource extends javax.swing.JFrame {
         initComponents();
         project = proj;
         developer2 = dev;
-        jLabel1.setText("<Html>"+project+"/SeleccionarRecurso</Html>");
+        jLabel1.setText("<Html> Proyecto: "+project+"<br> Ventana: Recursos</Html>");
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from resource");
@@ -85,7 +85,7 @@ public class SelectResource extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
-        setPreferredSize(new java.awt.Dimension(300, 350));
+        setPreferredSize(new java.awt.Dimension(300, 370));
         setResizable(false);
 
         scroll.setViewportView(resourcesListSelecResources);
@@ -113,7 +113,7 @@ public class SelectResource extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,7 +174,6 @@ public class SelectResource extends javax.swing.JFrame {
     private void addSelecResourcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSelecResourcesActionPerformed
         // TODO add your handling code here:
         String resources = resourcesListSelecResources.getSelectedValue();
-
         AddResource addResource = new AddResource(project, resources, developer2);
         addResource.setLocationRelativeTo(null);
         addResource.setVisible(true);

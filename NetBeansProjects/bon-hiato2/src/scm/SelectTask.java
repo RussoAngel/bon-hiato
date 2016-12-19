@@ -40,7 +40,7 @@ public class SelectTask extends javax.swing.JFrame {
         initComponents();
         developer2=dev;
         proy= project;
-        titleSelecTask.setText(proy);
+        titleSelecTask.setText("<Html> Proyecto: "+proy+"<br> Ventana: Editar Tarea</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -83,7 +83,7 @@ public class SelectTask extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(300, 300));
         setResizable(false);
 
-        titleSelecTask.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        titleSelecTask.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         titleSelecTask.setText("Proyecto Actual");
 
         scroll.setViewportView(tasksListSelecTask);
@@ -116,7 +116,7 @@ public class SelectTask extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titleSelecTask)
+                    .addComponent(titleSelecTask, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -124,7 +124,7 @@ public class SelectTask extends javax.swing.JFrame {
                             .addComponent(updateSelecTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(remSelecTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(canSelecTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -39,7 +39,7 @@ public class Gastos extends javax.swing.JFrame {
     public Gastos(String proy,String dev){
         initComponents();
         project=proy;
-        jLabel1.setText("<Html>"+project+"/EstimarGastos</Html>");
+        jLabel1.setText("<Html> Proyecto: "+project+"<br> Ventana: Estimar Gastos</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from gasto");
@@ -124,7 +124,7 @@ public class Gastos extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         jButton1.setText("Eliminar");

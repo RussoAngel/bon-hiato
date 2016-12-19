@@ -36,7 +36,7 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
         initComponents();
         proy= project;
         developer2=dev;
-        selecTareaLab.setText("<Html>"+proy+"/SeleccionarTareas</Html>");
+        selecTareaLab.setText("<Html> Proyecto: "+proy+"<br> Ventana: Tareas</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -78,7 +78,7 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(400, 300));
         setResizable(false);
 
-        selecTareaLab.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        selecTareaLab.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         selecTareaLab.setText("Proyecto Actual");
 
         scroll.setViewportView(tasksListSelecTarea);
@@ -126,7 +126,7 @@ public class SeleccionarTareaParaEstimar extends javax.swing.JFrame {
                         .addComponent(accSelecTarea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(canSelecTarea)))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         pack();

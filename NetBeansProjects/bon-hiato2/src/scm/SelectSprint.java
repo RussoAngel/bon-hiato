@@ -40,7 +40,7 @@ public class SelectSprint extends javax.swing.JFrame {
         proj=project;
         developer=dev;
         initComponents();
-        selecSprintLab.setText("<Html>"+proj+"/SeleccionarSprint</Html>");
+        selecSprintLab.setText("<Html> Proyecto: "+proj+"<br> Ventana: Sprints</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from sprint");
@@ -85,7 +85,7 @@ public class SelectSprint extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(400, 400));
         setResizable(false);
 
-        selecSprintLab.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        selecSprintLab.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         selecSprintLab.setText("Project-Sprints");
 
         viewSelecSprint.setText("Visualizar");

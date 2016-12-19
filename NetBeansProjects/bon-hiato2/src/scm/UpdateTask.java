@@ -41,7 +41,7 @@ public class UpdateTask extends javax.swing.JFrame {
         project = projectname;
         task = taskname;
         developer2 = dev;
-        jLabel1.setText("<Html>"+project +"/ModificarTarea</Html>");
+        jLabel1.setText("<Html> Proyecto: "+project +"<br> Ventana: Modificar Tarea</Html>");
         priority.addItem("0 - Sin prioridad");
         priority.addItem("1 - Poca prioridad");
         priority.addItem("2 - Prioridad media");
@@ -148,7 +148,7 @@ public class UpdateTask extends javax.swing.JFrame {
 
         updateTaskHours.setText("Horas");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,7 +201,7 @@ public class UpdateTask extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

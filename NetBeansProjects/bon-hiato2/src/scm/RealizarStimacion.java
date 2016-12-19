@@ -24,7 +24,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
         initComponents();
         develop=dev;
         project=proy;
-        jLabel1.setText("<Html>"+project+"/RealizarEstimación</Html>");
+        jLabel1.setText("<Html> Proyecto: "+project+"<br> Ventana: Realizar Estimación</Html>");
     }
 
     /**
@@ -48,7 +48,7 @@ public class RealizarStimacion extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
 

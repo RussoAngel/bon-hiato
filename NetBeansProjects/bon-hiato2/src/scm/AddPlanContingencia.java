@@ -40,7 +40,7 @@ public class AddPlanContingencia extends javax.swing.JFrame {
         initComponents();
         project = proy;
         developer2 = dev;
-        jLabel1.setText("<Html>"+project+"/CrearPlanContingencia</Html>");
+        jLabel1.setText("<Html> Proyecto Actual: "+project+"<br> Ventana Actual: Crear Plan De Contingencia</Html>");
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from contingencia");
@@ -119,7 +119,7 @@ public class AddPlanContingencia extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         prevencionAddPlan.setColumns(20);
@@ -138,8 +138,8 @@ public class AddPlanContingencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

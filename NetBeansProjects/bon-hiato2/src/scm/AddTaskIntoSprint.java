@@ -52,7 +52,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
         project=proj;
         developer2=dev;
         sprint=spr;
-        jLabel1.setText("<Html>"+project+" /"+sprint+" /AñadirTarea</Html>");
+        jLabel1.setText("<Html> Proyecto Actual: "+project+"<br> Sprint Actual: "+sprint+"<br> Ventana: Añadir Tarea</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -131,7 +131,7 @@ public class AddTaskIntoSprint extends javax.swing.JFrame {
 
         addToSprintTasks.setText("Seleccionar Tarea");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

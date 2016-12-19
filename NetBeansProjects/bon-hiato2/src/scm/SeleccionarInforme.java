@@ -36,7 +36,7 @@ public class SeleccionarInforme extends javax.swing.JFrame {
         initComponents();
         project=proj;
         developer=dev;
-        jLabel1.setText("<Html>"+project+"/SeleccionarInforme</Html>");
+        jLabel1.setText("<Html> Proyecto: "+project+"<br> Ventana: Informes</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from informeriesgo");
@@ -98,7 +98,7 @@ public class SeleccionarInforme extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,7 +121,7 @@ public class SeleccionarInforme extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(selecInformesLab)
