@@ -120,11 +120,11 @@ public class UpdateTask extends javax.swing.JFrame {
         updateTaskName.setText("Nombre de la tarea");
         updateTaskName.setToolTipText("");
 
-        updateTaskPriority.setText("Prioridad (0-5)");
+        updateTaskPriority.setText("Prioridad");
 
         updateTaskDescription.setText("Descripción");
 
-        updateTaskState.setText("Estado (0-3)");
+        updateTaskState.setText("Estado");
 
         descriptionUpdateTask.setColumns(20);
         descriptionUpdateTask.setRows(5);

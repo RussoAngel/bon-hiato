@@ -182,7 +182,7 @@ public class Visualizar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
-        setPreferredSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 350));
         setResizable(false);
 
         visualizarFechaIni.setText("Fecha de inicio");

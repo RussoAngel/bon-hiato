@@ -60,6 +60,7 @@ public class AddTask2 extends javax.swing.JFrame {
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from login");
+            Developer.addItem("Sin Asignar");
             while(rs.next()){
                 if(rs.getString("type").equals("developer") || rs.getString("type").equals("scrumMaster")){
                     Developer.addItem(rs.getString("name"));

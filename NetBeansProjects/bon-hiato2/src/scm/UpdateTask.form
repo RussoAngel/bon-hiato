@@ -147,7 +147,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="updateTaskPriority">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Prioridad (0-5)"/>
+        <Property name="text" type="java.lang.String" value="Prioridad"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="updateTaskDescription">
@@ -157,7 +157,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="updateTaskState">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Estado (0-3)"/>
+        <Property name="text" type="java.lang.String" value="Estado"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="scroll">
