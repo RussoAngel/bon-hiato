@@ -39,7 +39,7 @@ public class ProductBacklog extends javax.swing.JFrame {
         proy= project;
         develop=deve;
         initComponents();
-        productBacklogProject.setText("<Html>"+proy +"/ProductBacklog</Html>");
+        productBacklogProject.setText("<Html> Proyecto: "+proy +"<br> Ventana: ProductBacklog</Html>");
         try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery("select * from task");
@@ -87,7 +87,7 @@ public class ProductBacklog extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
-        productBacklogProject.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        productBacklogProject.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         productBacklogProject.setText("Proyecto Actual");
         getContentPane().add(productBacklogProject);
 

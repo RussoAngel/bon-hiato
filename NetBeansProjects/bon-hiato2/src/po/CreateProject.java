@@ -32,7 +32,7 @@ public class CreateProject extends javax.swing.JFrame {
     }
     public CreateProject(String deve){
         initComponents();
-        jLabel1.setText("<Html>CrearProyecto</Html>");
+        jLabel1.setText("<Html>Crear Proyecto</Html>");
         develop=deve;
     }
 
@@ -80,7 +80,7 @@ public class CreateProject extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

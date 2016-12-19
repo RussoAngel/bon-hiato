@@ -46,7 +46,7 @@ public class ModifyTask extends javax.swing.JFrame {
  
         task2 = task;
         proj = proyect;
-        jLabel2.setText("<Html>"+proj +"/ModifyTask</Html>");
+        jLabel2.setText("<Html> Proyecto: "+proj +"<br> Ventana: Modificar Tarea</Html>");
         jComboBox1.addItem("0 - Sin prioridad");
         jComboBox1.addItem("1 - Poca prioridad");
         jComboBox1.addItem("2 - Prioridad media");
@@ -123,7 +123,7 @@ public class ModifyTask extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,7 +158,7 @@ public class ModifyTask extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(modifyTaskName)
                     .addComponent(modifyTaskPriority))
