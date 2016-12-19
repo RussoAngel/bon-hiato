@@ -85,7 +85,7 @@ public class SelectResource extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
-        setPreferredSize(new java.awt.Dimension(300, 300));
+        setPreferredSize(new java.awt.Dimension(300, 350));
         setResizable(false);
 
         scroll.setViewportView(resourcesListSelecResources);

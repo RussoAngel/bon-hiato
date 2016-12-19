@@ -72,18 +72,21 @@ public class VisualizarContingencia extends javax.swing.JFrame {
         visualizarContingenciaPerdida = new javax.swing.JLabel();
         visualizarContingenciaName = new javax.swing.JLabel();
         nameVisualizarContingencia = new javax.swing.JLabel();
-        prevencionVisualizarContingencia = new javax.swing.JLabel();
         perdidaVisualizarContingencia = new javax.swing.JLabel();
-        medidaVisualizarContingencia = new javax.swing.JLabel();
         probabilidadVisualizarContingencia = new javax.swing.JLabel();
         visualizarContingenciaExposicion = new javax.swing.JLabel();
         exposicionVisualizarContingencia = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionContingencia = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        prevencionVisualizarContingencia = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        medidaVisualizarContingencia = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(800, 400));
         setResizable(false);
 
         visualizarContingenciaProbabilidad.setText("Probabilidad (%)");
@@ -107,11 +110,7 @@ public class VisualizarContingencia extends javax.swing.JFrame {
 
         nameVisualizarContingencia.setText("jLabel7");
 
-        prevencionVisualizarContingencia.setText("jLabel8");
-
         perdidaVisualizarContingencia.setText("jLabel9");
-
-        medidaVisualizarContingencia.setText("jLabel10");
 
         probabilidadVisualizarContingencia.setText("jLabel11");
 
@@ -127,6 +126,16 @@ public class VisualizarContingencia extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("jLabel1");
 
+        prevencionVisualizarContingencia.setEditable(false);
+        prevencionVisualizarContingencia.setColumns(20);
+        prevencionVisualizarContingencia.setRows(5);
+        jScrollPane2.setViewportView(prevencionVisualizarContingencia);
+
+        medidaVisualizarContingencia.setEditable(false);
+        medidaVisualizarContingencia.setColumns(20);
+        medidaVisualizarContingencia.setRows(5);
+        jScrollPane3.setViewportView(medidaVisualizarContingencia);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,75 +144,69 @@ public class VisualizarContingencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameVisualizarContingencia)
-                        .addGap(158, 158, 158)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(prevencionVisualizarContingencia)
-                            .addComponent(visualizarContingenciaPrevencion)))
-                    .addComponent(visualizarContingenciaName)
+                    .addComponent(canVisualizarContingencia)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(canVisualizarContingencia)
-                            .addComponent(probabilidadVisualizarContingencia)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(exposicionVisualizarContingencia)
-                                    .addComponent(visualizarContingenciaExposicion))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(visualizarContingenciaPerdida)
-                            .addComponent(perdidaVisualizarContingencia)
-                            .addComponent(visualizarContingenciaProbabilidad))
-                        .addGap(112, 112, 112)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(visualizarContingenciaDescription)
-                            .addComponent(medidaVisualizarContingencia)
-                            .addComponent(visualizarContingenciaMedida))))
-                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(perdidaVisualizarContingencia)
+                                    .addComponent(visualizarContingenciaPerdida))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(visualizarContingenciaPrevencion)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(probabilidadVisualizarContingencia)
+                                        .addComponent(visualizarContingenciaProbabilidad)
+                                        .addComponent(visualizarContingenciaName)
+                                        .addComponent(nameVisualizarContingencia)))
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(visualizarContingenciaExposicion)
+                                    .addComponent(visualizarContingenciaMedida)
+                                    .addComponent(exposicionVisualizarContingencia))))))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(visualizarContingenciaPrevencion)
-                    .addComponent(visualizarContingenciaName))
+                .addGap(13, 13, 13)
+                .addComponent(visualizarContingenciaName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameVisualizarContingencia)
-                    .addComponent(prevencionVisualizarContingencia))
-                .addGap(18, 18, 18)
+                .addComponent(nameVisualizarContingencia)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(visualizarContingenciaPerdida)
-                    .addComponent(visualizarContingenciaMedida))
+                    .addComponent(visualizarContingenciaProbabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visualizarContingenciaExposicion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(perdidaVisualizarContingencia)
-                    .addComponent(medidaVisualizarContingencia))
-                .addGap(11, 11, 11)
+                    .addComponent(probabilidadVisualizarContingencia)
+                    .addComponent(exposicionVisualizarContingencia))
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(visualizarContingenciaProbabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(visualizarContingenciaDescription))
+                    .addComponent(visualizarContingenciaPrevencion)
+                    .addComponent(visualizarContingenciaDescription)
+                    .addComponent(visualizarContingenciaMedida))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(probabilidadVisualizarContingencia)
-                        .addGap(18, 18, 18)
-                        .addComponent(visualizarContingenciaExposicion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exposicionVisualizarContingencia)
-                        .addGap(14, 14, 14)
-                        .addComponent(canVisualizarContingencia))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(canVisualizarContingencia)
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -258,10 +261,12 @@ public class VisualizarContingencia extends javax.swing.JFrame {
     private javax.swing.JLabel exposicionVisualizarContingencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel medidaVisualizarContingencia;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea medidaVisualizarContingencia;
     private javax.swing.JLabel nameVisualizarContingencia;
     private javax.swing.JLabel perdidaVisualizarContingencia;
-    private javax.swing.JLabel prevencionVisualizarContingencia;
+    private javax.swing.JTextArea prevencionVisualizarContingencia;
     private javax.swing.JLabel probabilidadVisualizarContingencia;
     private javax.swing.JLabel visualizarContingenciaDescription;
     private javax.swing.JLabel visualizarContingenciaExposicion;

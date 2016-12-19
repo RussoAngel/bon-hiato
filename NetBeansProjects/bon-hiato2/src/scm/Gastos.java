@@ -103,6 +103,7 @@ public class Gastos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(343, 300));
         setResizable(false);
 
         gastosTotal.setText("Gastos Totales");
