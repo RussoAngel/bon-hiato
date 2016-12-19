@@ -67,6 +67,7 @@ public class Inform extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bon-Hiato");
+        setPreferredSize(new java.awt.Dimension(300, 400));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(0, 1));
 
@@ -85,6 +86,9 @@ public class Inform extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
 
         canInform.setText("Cancelar");
+        canInform.setMaximumSize(new java.awt.Dimension(50, 20));
+        canInform.setMinimumSize(new java.awt.Dimension(50, 20));
+        canInform.setPreferredSize(new java.awt.Dimension(50, 20));
         canInform.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 canInformActionPerformed(evt);
