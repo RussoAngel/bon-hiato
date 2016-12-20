@@ -6,6 +6,7 @@
 package scm;
 
 import bon.BD;
+import com.toedter.calendar.JTextFieldDateEditor;
 import developer.Identificador;
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -40,6 +41,8 @@ public class CreateSprint extends javax.swing.JFrame {
     }
     public CreateSprint(String project,String dev){
         initComponents();
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) fechaIniCreateSprint.getDateEditor();
+        editor.setEditable(false);
         proj=project;
         developer2=dev;
         jLabel1.setText("<Html> Proyecto: "+proj+"<br> Ventana: Crear Sprint</Html>");
